@@ -7,7 +7,6 @@ import sentimentAnalysis from "pages/sentimentAnalysis/sentimentAnalysis";
 import login from "pages/login/login";
 import Header from "components/header/header";
 
-
 // const pollutionMonitor = asyncComponent(() => import("pages/pollutionMonitor/pollutionMonitor"));
 // const envMonitor = asyncComponent(() => import("pages/envMonitor/envMonitor"));
 // const sentimentAnalysis = asyncComponent(() => import("pages/sentimentAnalysis/sentimentAnalysis"));
