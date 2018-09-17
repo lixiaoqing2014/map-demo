@@ -3,17 +3,14 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import "./css/App.scss";
 import { connect } from "react-redux";
 import { changeRootFont } from "store/UI/action";
-import sentimentAnalysis from "pages/sentimentAnalysis/sentimentAnalysis";
 import login from "pages/login/login";
+import index from "pages/index/index";
+import environmentMonitor from "pages/environmentMonitor/index";
+import originalList from "pages/originalList/index";
+import sceneLookforecast from "pages/sceneLookforecast/index"
+import totalReport from "pages/totalReport/index"
+import totalDevelop from "pages/totalDevelop/index"
 import Header from "components/header/header";
-
-// const pollutionMonitor = asyncComponent(() => import("pages/pollutionMonitor/pollutionMonitor"));
-// const envMonitor = asyncComponent(() => import("pages/envMonitor/envMonitor"));
-// const sentimentAnalysis = asyncComponent(() => import("pages/sentimentAnalysis/sentimentAnalysis"));
-// const factoryRecord = asyncComponent(() => import("pages/factoryRecord/factoryRecord"));
-// const resourceCategory = asyncComponent(() => import("pages/resourceCategory/resourceCategory"));
-// const comprehensiveAnalysis = asyncComponent(() => import("pages/comprehensiveAnalysis/comprehensiveAnalysis"));
-// const login = asyncComponent(() => import("pages/login/login"));
 
 class App extends Component {
   constructor(props) {
@@ -47,15 +44,12 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={login} />
           <Header>
-            <Route path="/concensus" exact component={sentimentAnalysis} />
-            {/*<Route path="/record" render={() =>*/}
-              {/*<Switch>*/}
-                {/*<Route path="/record" exact component={factoryRecord}/>*/}
-                {/*<Route path="/record/check/:id?" exact component={CheckModule}/>*/}
-                {/*<Route path="/record/edit/:id?" exact component={EditModule}/>*/}
-              {/*</Switch>*/}
-            {/*} />*/}
-            {/*<Route path="/resource" exact component={resourceCategory} />*/}
+            <Route path="/index" exact component={index} />
+            <Route path="/environmentMonitor" exact component={environmentMonitor} />
+            <Route path="/originalList" exact component={originalList} />
+            <Route path="/sceneLookforecast" exact component={sceneLookforecast} />
+            <Route path="/totalReport" exact component={totalReport} />
+            <Route path="/totalDevelop" exact component={totalDevelop} />
           </Header>
           <Redirect to="/" />
         </Switch>

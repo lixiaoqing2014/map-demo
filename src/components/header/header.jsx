@@ -3,15 +3,16 @@ import "./header.scss";
 
 import { Link } from "react-router-dom";
 
-import iconProjectName from "image/logo.png";
 import iconUser from "image/Bitmap@1x.png";
 import iconQuit from "image/quit.png";
 
 const navItem = [
-  { name: "舆情分析", url: "/concensus"},
-  // { name: "综合分析", url: "/comprehensive"},
-  //{ name: "一源一档", url: "/record"},
-  // { name: "资源目录", url: "/resource"},
+    { name: "首页", url: "/index"},
+	{name:"环境监测网",url:"/environmentMonitor"},
+	{name:"原清单",url:"/originalList"},
+	{name:"气象观测与预报",url:"/sceneLookforecast"},
+	{name:"全面举报",url:"/totalReport"},
+	{name:"数据研制",url:"/totalDevelop"}
 ];
 
 class Header extends Component {
@@ -26,7 +27,7 @@ class Header extends Component {
 	    <div>
 	      <header className="header-container">
 	        <div className="project-name">
-	          <img src={iconProjectName}  alt="此处应有图片"></img>
+				廊坊市空气质量智能管控平台
 	        </div>
 
 	        <div className="user">
@@ -56,7 +57,8 @@ class Header extends Component {
 	        </div>
 	      </header>
 	      <div className="main-page">
-	        {this.props.children}
+			  <h2>标题</h2>
+	      {this.props.children}
 	      </div>
 	    </div>
 	  )
