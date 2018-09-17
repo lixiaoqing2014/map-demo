@@ -120,6 +120,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.0",
     "eslint-plugin-react": "^7.10.0",
+    "node-sass": "^4.9.3",
     "sass-resources-loader": "^1.3.3"
   }
 }
