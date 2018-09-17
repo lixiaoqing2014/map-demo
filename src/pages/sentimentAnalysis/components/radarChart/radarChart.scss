@@ -1,0 +1,31 @@
+.petition-source-container {
+  .header {
+    margin-bottom: 0.20rem;
+  }
+
+  .title {
+    color: $component-title;
+    line-height: 0.24rem;
+    font-size: 0.24rem;
+  }
+
+  .center {
+    text-align: center;
+    line-height: 2.2rem;
+  }
+
+  .chart-container {
+    width: 100%;
+    height: 2.45rem;
+    background-color: $container-background-1;
+    position: relative;
+
+    .radar-chart {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      right: 0;
+      top: 0;
+    }
+  }
+}

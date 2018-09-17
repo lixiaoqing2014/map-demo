@@ -1,0 +1,27 @@
+.lenged-list-container {
+	line-height: 1.5;
+	font-size: 0.18rem;
+
+	td:first-child:after{
+		content: "";
+		display: inline-block;
+		width: 0;
+		height: 100%;
+		vertical-align: middle;
+	}
+	.legend-shape{
+		display: inline-block;
+		width: 0.1rem;
+		height: 0.1rem;
+		margin-right: .5em;
+		vertical-align: middle;
+	}
+	.legend-name{
+		padding-right: 1.2em;
+		color: #909295;
+	}
+	td:last-child{
+		text-align: right;
+		color: #fff;
+	}
+}

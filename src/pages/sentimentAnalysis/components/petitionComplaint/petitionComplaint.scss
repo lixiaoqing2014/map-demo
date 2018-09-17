@@ -1,0 +1,196 @@
+.petition-complaint-container {
+  .header {
+    margin-bottom: 0.20rem;
+  }
+  
+  .title {
+    color: $component-title;
+    line-height: 0.24rem;
+    font-size: 0.24rem;
+  }
+
+  .title,
+  .type-select,
+  .status-select {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .type-select,
+  .status-select {
+    margin-left: 0.3rem;
+  }
+
+  .type-select {
+    width: 1.5rem;
+
+    input {
+      padding: .03rem .1rem;
+      border-radius: 0;
+      border: none;
+      background-color: $popup-tooltip-select-background;
+      font-size: 0.16rem;
+      color: #ffffff;
+      height: .27rem;
+      line-height: .27rem;
+      @include ellipsis;
+    }
+
+    .el-select-dropdown {
+      border-radius: 0;
+      border: none;
+      background-color: $popup-tooltip-select-background;
+      line-height: 0.28rem;
+      font-size: 0.16rem;
+      color: #ffffff;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      font-size: 0.16rem;
+      color: #ffffff;
+      height: .27rem;
+      line-height: .27rem;
+      padding: .03rem .1rem;
+
+      &.selected, &.hover {
+        color: #fff;
+        background-color: #2d5d93;
+      }
+
+      span {
+        vertical-align: top;
+      }
+    }
+  }
+
+  .content {
+    height: 7.84rem;
+  
+    &.nodata {
+      background-color: $container-background-2;
+      margin-bottom: 0.1rem;
+
+      .nodata-tip {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    }
+  }
+
+  .content-container {
+    width: 100%;
+    height: 1.02rem;
+    background-color: $container-background-2;
+    box-sizing: border-box;
+    margin-bottom: 0.1rem;
+    padding: 0.2rem 0.3rem;
+  }
+
+  .content-row-one {
+    height: 0.26rem;
+
+    &:after {
+      @include clear-float;
+    }
+  }
+
+  .content-row-two {
+    margin: 0.2rem 0 0 0.21rem;
+    color: #9b9b9b;
+    font-size: 0.16rem;
+
+    > span {
+      display: inline-block;
+      box-sizing: border-box;
+      padding-right: 0.1rem;
+      @include ellipsis;
+    }
+
+    .content-reason {
+      width: 30%;
+    }
+
+    .content-assignee {
+      width: 38%;
+    }
+
+    .content-status {
+      -webkit-font-smoothing: antialiased;
+      font-weight: 700;
+      width: 17%;
+
+      &.completed {
+        color: #289b71;
+      }
+
+      &.pendding {
+        color: #dc414a;
+      }
+    }
+
+    .content-date {
+      width: 15%;
+      text-align: end;
+      padding-right: 0;
+    }
+  }
+
+  .content-title {
+    float: left;
+    width: 85%;
+    line-height: 0.26rem;
+    box-sizing: border-box;
+    padding-right: 0.2rem;
+    font-size: 0.18rem;
+    color: #ffffff;
+    cursor: pointer;
+    @include ellipsis;
+
+    > a {
+      text-decoration: none;
+      color: #ffffff;
+
+      &:visited {
+        color: #9b9b9b;
+        text-decoration:none;
+      }
+
+      &:hover {
+        color: $component-title;
+      }
+    }
+  }
+
+  .content-similar {
+    float: right;
+    box-sizing: border-box;
+    padding: 0.02rem;
+    text-align: center;
+    width: 15%;
+    cursor: pointer;
+    border: 1px solid $button-border-1;
+    border-radius: 1px;
+    font-size: 0.14rem;
+    line-height: 0.2rem;
+    color: #00a3ff;
+    @include ellipsis;
+  }
+
+  .content-similar-none-data {
+    color: #9b9b9b;
+    border: 1px solid #9b9b9b;
+    cursor: not-allowed;
+  }
+
+  .pagination {
+    text-align: center;
+    margin-top: .1rem;
+  }
+}

@@ -1,0 +1,106 @@
+.confirm-wins-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .confirm-wins-container .wins {
+    position: absolute;
+    background-color: #ffffff;
+    width: 8.2rem;
+    height: 6.8rem;
+    color: #02233b; }
+    .confirm-wins-container .wins .title {
+      display: flex;
+      justify-content: center;
+      margin-top: .2rem;
+      margin-bottom: .2rem;
+      font-size: .28rem; }
+    .confirm-wins-container .wins .desc {
+      font-size: .24rem;
+      display: flex;
+      justify-content: center;
+      padding-bottom: .1rem;
+      border-bottom: solid 2px  #b0b0b0; }
+    .confirm-wins-container .wins .contacts {
+      font-size: .18rem;
+      margin: .2rem; }
+    .confirm-wins-container .wins .content .table {
+      color: #000;
+      flex: 1;
+      display: flex;
+      flex-direction: column; }
+      .confirm-wins-container .wins .content .table .table-header {
+        display: flex;
+        font-size: .18rem;
+        margin-bottom: 0.2rem;
+        color: #02233b; }
+      .confirm-wins-container .wins .content .table .table-row {
+        font-size: .18rem;
+        margin-bottom: 0.2rem;
+        display: flex; }
+      .confirm-wins-container .wins .content .table .region {
+        flex: 2;
+        display: flex;
+        justify-content: center; }
+      .confirm-wins-container .wins .content .table .name1 {
+        flex: 2;
+        display: flex;
+        justify-content: center; }
+      .confirm-wins-container .wins .content .table .telephone1 {
+        flex: 2;
+        display: flex;
+        justify-content: center; }
+      .confirm-wins-container .wins .content .table .operator1 {
+        flex: 2;
+        display: flex;
+        justify-content: center; }
+      .confirm-wins-container .wins .content .table .name2 {
+        flex: 2;
+        display: flex;
+        justify-content: center; }
+      .confirm-wins-container .wins .content .table .telephone2 {
+        flex: 2;
+        display: flex;
+        justify-content: center; }
+      .confirm-wins-container .wins .content .table .operator2 {
+        flex: 2;
+        display: flex;
+        justify-content: center; }
+    .confirm-wins-container .wins .fn-btn {
+      margin-top: 2em; }
+    .confirm-wins-container .wins .messagesetup {
+      float: left;
+      font-size: .18rem;
+      margin-left: .3rem; }
+    .confirm-wins-container .wins .overproof {
+      float: left;
+      font-size: .18rem;
+      margin-left: .2rem; }
+    .confirm-wins-container .wins .expiryoutage {
+      float: left;
+      font-size: .18rem;
+      margin-left: .2rem; }
+    .confirm-wins-container .wins .btn {
+      display: inline-block;
+      border: 1px solid;
+      height: .36rem;
+      width: .8rem;
+      line-height: .36rem;
+      border-radius: 4px; }
+    .confirm-wins-container .wins .left-btn {
+      float: right;
+      color: #103468;
+      text-align: center;
+      margin-right: .5rem; }
+    .confirm-wins-container .wins .right-btn {
+      float: right;
+      border: 1px solid;
+      color: #103468;
+      margin-right: .2rem;
+      text-align: center; }

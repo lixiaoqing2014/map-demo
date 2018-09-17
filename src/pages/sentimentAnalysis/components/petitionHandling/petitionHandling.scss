@@ -1,0 +1,93 @@
+.petition-handling-container {
+  .title {
+    margin-bottom: 0.20rem;
+    line-height: 0.24rem;
+    color: $component-title;
+    font-size: 0.24rem;
+  }
+
+  .content {
+    position: relative;
+    width: 100%;
+    height: 2rem;
+    background-color: $container-background-1;
+  }
+
+  .nodata-tip {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  #petition-handling-chart {
+    width: 100%;
+    height: 2rem;
+  }
+
+  .percentage {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    color: #00a3ff;
+    text-align: center;
+
+    > p:first-child {
+      font-size: 0.3rem;
+      line-height: 0.4rem;
+    }
+
+    > p:last-child {
+      font-size: 0.16rem;
+    }
+
+  }
+
+  .info {
+    position: absolute;
+    right: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(100% - 3rem);
+    font-size: 0.18rem;
+
+    tr {
+        position: relative;
+        line-height: 1.7;
+    }
+  }
+
+  .description {
+    text-align: left;
+    color: #999999;
+  }
+
+  .value {
+    text-align: right;
+    color: #ffffff;
+    position: relative;
+  }
+
+  .arrow-up, .arrow-down {
+    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.14rem;
+    height: 0.14rem;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    margin-left: .05rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .arrow-up {
+    background-image: url(../../../../image/arrow_up_red@2x.png);
+  }
+
+  .arrow-down {
+    background-image: url(../../../../image/arrow_down_green@2x.png);
+  }
+}

@@ -1,0 +1,83 @@
+.el-pagination, .newpage {
+  padding: 0;
+  display: inline-block;
+
+  .el-pager li {
+    font-size: 13px;
+    line-height: .28rem;
+    min-width: .28rem;
+    height: .28rem;
+    margin: 0 .07rem;
+    padding: 0 .04rem;
+    border: .5px solid #9b9b9b;
+    background: none;
+    color: #9b9b9b;
+  }
+
+  .el-pager li.active {
+    color: #fff;
+    border: none;
+    background: #0367ae;
+  }
+
+  .el-pager li:hover {
+    color: #9b9b9b;
+    color: #fff;
+    border: none;
+    background: #0367ae;
+  }
+
+  .el-pager li.active + li {
+    border-left: .5px solid #9b9b9b;
+  }
+
+  .el-pager li.active + li:hover {
+    border-left: none;
+  }
+
+  .btn-next, .btn-prev, .disabled {
+    font-size: 13px;
+    line-height: .28rem;
+    min-width: .28rem;
+    height: .28rem;
+    padding: 0 .04rem;
+    color: #9b9b9b;
+    border: .5px solid #9b9b9b;
+    background: none;
+  }
+
+  button.disabled {
+    background: none;
+    color: #9b9b9b;
+    margin: 0 0.07rem;
+  }
+
+  .btn-next, .btn-prev {
+    margin: 0 0.07rem;
+    color: #9b9b9b;
+  }
+
+  .el-icon .more .btn-quicknext .el-icon-more {
+    
+  }
+  
+}
+
+.page {
+  position: relative;
+
+  .records {
+    white-space: nowrap;
+    font-size: .14rem;
+    color: #9b9b9b;
+    display: inline-block;
+    vertical-align: text-bottom;
+    line-height: .1rem;
+    margin-right: .15rem;
+
+    span {
+      padding: 0 .05rem;
+      color: #fff;
+    }
+  }
+}

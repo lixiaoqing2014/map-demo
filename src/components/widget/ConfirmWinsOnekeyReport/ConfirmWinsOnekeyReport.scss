@@ -1,0 +1,106 @@
+.confirm-wins-report-container {
+  position: fixed;  
+  left: 0;  
+  top: 0;  
+  width: 100%;  
+  height: 100%;  
+  z-index: 999;  
+  background: rgba(0, 0, 0, 0.5);  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .wins {
+    position: absolute;  
+    background-color: #ffffff; 
+    box-sizing: border-box; 
+    width: 6.4rem; 
+    height: 6rem;
+    color: #02233b; 
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-size: .28rem;
+      display: flex;
+      justify-content: center;
+      margin-top: .1rem;
+    }
+      
+    .content {
+      .table-row {
+        display: flex;
+        font-size: 0.18rem;
+        margin-top: .3rem;
+        margin-left: .5rem;
+        margin-right: 1rem;
+      }
+
+      .labelreport {
+        flex: 1;
+      }
+      .formitem {
+        flex: 3;
+        select {
+          width: 2.6rem;
+          height: .3rem;
+          border-radius: 5px;
+          font-size: .18rem;
+        }
+        input {
+          box-sizing: border-box;
+          width: 2.6rem;
+          height: .3rem;
+          border-radius: 5px;
+        }
+      }
+
+      .chosetabletype {
+        display: inline-block;
+        width: 248px;
+        height: 22px;
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0px;
+        letter-spacing: 0px;
+        color: #103468;
+
+        .selectreport{
+          margin-left: 150px;
+        }
+
+      }
+
+      .expiryoutage {
+        flex: 2;
+      }
+    }
+
+    .daysselect {
+      margin-top: 2px;
+    }
+
+    .daysselect > div {
+      margin-left: 1.725rem;
+    }
+
+    .fn-btn {
+      display: flex;
+      justify-content: center;
+    }
+
+    .left-btn {
+      margin-top: .2rem;
+      width: .8rem;
+      height: .34rem;
+      border-radius: .06rem;
+      background: #103468;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  } 
+}

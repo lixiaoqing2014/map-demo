@@ -1,0 +1,65 @@
+// For common height or width variable define
+$header-height: 0.8rem;
+$top-info-menu-height: 0.6rem;
+$fontSizeTab: 0.22rem;
+$fontSizeNormal: 0.18rem;
+$fontSizeImportantInfo: 0.26rem;
+$fontSizeImportantNum: ($fontSizeImportantInfo - 0.06rem);
+
+// For common color variable define
+$page-background: #0b214b;
+$component-title: #00a3ff;
+$button-border-1: #00a3ff;
+$container-background-1: #0a2958;
+$container-background-2: #093466;
+$container-background-3: #092d5e;
+$popup-tooltip-select-background: #194d91;
+$colorUncheck: #C0C2C3;
+$colorNormal: #CCCCCC;
+$btnBackgroundColor: #037BC9;
+$table-border: #0c4781;
+$common-color: #fff;
+
+// For common css snippets
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin clear-float {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@mixin component-title {
+  margin-bottom: 0.20rem;
+  line-height: 0.24rem;
+  color: $component-title;
+  font-size: 0.24rem;
+}
+
+@mixin drain-outlet-comp {
+  display: inline-block;
+  float: left;
+  height: 100%;
+  width: 100%;
+  padding: 0.17rem;
+  background-color: $container-background-1;
+  //margin-right: 0.03rem;
+}
+
+@mixin two-row-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+.switchdot-container{
+    display: flex;
+    justify-content: center;
+    .dot-box{
+        display: flex;
+        .dot{
+            min-height: 10px;
+            width: .1rem;
+            min-width: 10px;
+            margin: .1rem .1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #D8D8D8;
+            opacity: 0.3;
+        }
+        .active{
+            opacity: 1;
+        }
+    }
+}

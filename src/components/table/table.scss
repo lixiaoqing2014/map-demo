@@ -1,0 +1,149 @@
+.table-with-title {
+  .header {
+    position: relative;
+    margin-bottom: .2rem;
+  }
+
+  .title {
+    font-size: .24rem;
+    color: $component-title;
+  }
+
+  .add-new-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    font-size: .18rem;
+    color: $colorNormal;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: -.32rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: .22rem;
+      height: .22rem;
+      margin-right: .1rem;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-image: url(../../image/add_new.png)
+    }
+  }
+
+  .error {
+    border: 1px solid #FF9900;
+
+    .el-date-editor {
+      float: none;
+    }
+
+    &::-webkit-input-placeholder { /* WebKit browsers */
+      color: #FF9900;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: #FF9900;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: #FF9900;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: #FF9900;
+    }
+
+    input::-webkit-input-placeholder { /* WebKit browsers */
+      color: #FF9900;
+    }
+    input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: #FF9900;
+    }
+    input::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: #FF9900;
+    }
+    input:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: #FF9900;
+    }
+  }
+
+
+  input {
+    width: 100%;
+    line-height: .25rem;
+    font-size: .16rem;
+    color: #ccc;
+    background-color: #304a71;
+    text-align: center;
+    border: none;
+  }
+
+  .table-select .input-box {
+    color: #ccc;
+    background-color: #304a71;
+  }
+
+  @mixin button ($url) {
+    position: relative;
+    width: .45rem;
+    height: .22rem;
+    padding: 0;
+    font-size: .16rem;
+    color: #ccc;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -.18rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: .18rem;
+      height: .18rem;
+      background-image: url($url);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+  }
+
+  .action {
+    padding-left: .18rem;
+
+    .btn-edit {
+      @include button("../../image/edit.png");
+      margin-right: .55rem;
+    }
+
+    .btn-cancel {
+      @include button("../../image/cancel@2x.png")
+    }
+
+    .btn-delete {
+      @include button("../../image/delete.png")
+    }
+
+    .btn-confirm {
+      @include button("../../image/confirm@2x.png");
+      margin-right: .55rem;
+    }
+
+    .disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .total-records {
+    font-size: .16rem;
+  }
+}
+
+.table-select-options {
+  font-size: .16rem;
+  background-color: #304a71;
+  color: #ccc;
+}

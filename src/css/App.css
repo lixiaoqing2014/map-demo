@@ -1,0 +1,88 @@
+/*@media screen and (min-width: 100px) {
+
+  html,body,#root {
+    min-height: 678px;
+    min-width: 1200px;
+  }
+}
+@media screen and (min-width: 1400px) {
+
+  html,body,#root {
+    min-height: 900px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  
+  html,body,#root {
+    min-height: 900px;
+  }
+}
+@media screen and (min-height: 910px) {
+  
+  html,body,#root {
+    min-width: 1700px;
+  }
+}*/
+html, body, #root {
+  background: #0f2f56;
+  color: #fff;
+  font-family: "Microsoft YaHei UI", "Arial Narrow", sans-serif;
+  font-size: .16rem;
+  letter-spacing: 1px;
+  height: 100%; }
+
+.clickable {
+  cursor: pointer; }
+
+.hidden {
+  display: none !important; }
+
+.invisible {
+  visibility: hidden; }
+
+.table {
+  flex: 1;
+  display: flex;
+  flex-direction: column; }
+  .table .table-header {
+    display: flex;
+    font-size: 0.16rem;
+    color: #c7c7c7;
+    margin-bottom: .12rem; }
+    .table .table-header .name {
+      color: #c7c7c7; }
+  .table .table-row {
+    flex: 1;
+    display: flex;
+    font-size: 0.16rem; }
+  .table .rank {
+    display: flex;
+    justify-content: center; }
+  .table .name {
+    flex: 1.2;
+    color: #00f6ea; }
+
+.App {
+  text-align: center; }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px; }
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white; }
+
+.App-title {
+  font-size: 1.5em; }
+
+.App-intro {
+  font-size: large; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }

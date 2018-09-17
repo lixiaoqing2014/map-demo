@@ -1,0 +1,21 @@
+.rangechoose-container{
+    display: flex;
+    justify-content: center;
+    .Choose-item{
+        cursor: pointer;
+        width: auto;
+        padding: .1rem;
+        height: .32rem;
+        font-size: .2rem;
+        color: #ffffff;
+        letter-spacing: .025rem;
+        background:rgba(74,144,226,0.2);
+        filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#334A90E2,endcolorstr=#334A90E2);
+        margin: 0 .01rem;
+        text-align: center;
+        line-height: .14rem;
+    }
+    .active{
+        background: #037BC9;
+    }
+}

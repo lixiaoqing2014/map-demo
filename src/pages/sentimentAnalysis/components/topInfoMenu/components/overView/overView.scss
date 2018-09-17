@@ -1,0 +1,32 @@
+.info-overview {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  overflow: hidden;
+  display: inline-block;
+  width: 53.7%;
+  text-align: center;
+
+  .content {
+    display: inline;
+
+    .view-title {
+      font-size: $fontSizeNormal;
+      color: $colorUncheck;
+      display: inline-block;
+      margin-right: 0.15rem;
+      margin-left: 0.15rem;
+
+      .important-info {
+        font-size: $fontSizeImportantNum;
+        color: $component-title;
+        margin: 0 0.05rem;
+      }
+
+      .important-num {
+        font-size: $fontSizeImportantInfo;
+        color: $component-title;
+        margin: 0 0.05rem;
+      }
+    }
+  }
+}

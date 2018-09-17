@@ -1,0 +1,151 @@
+.confirm-wins-container {
+  position: fixed;  
+  left: 0;  
+  top: 0;  
+  width: 100%;  
+  height: 100%;  
+  z-index: 999;  
+  background: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  
+  .wins {
+    position: absolute;  
+    background-color: #ffffff;  
+    width: 8.2rem; 
+    height: 6.8rem; 
+    color: #02233b;
+  
+    .title {
+      display: flex;
+      justify-content: center;
+      margin-top: .2rem;
+      margin-bottom: .2rem;
+      font-size: .28rem;
+    } 
+
+    .desc {
+      font-size: .24rem;
+      display: flex;
+      justify-content: center;
+      padding-bottom: .1rem;
+      border-bottom: solid 2px  #b0b0b0;
+    } 
+
+    .slice-line {
+      
+    }
+    .contacts {
+      font-size: .18rem; 
+      margin: .2rem;
+    }   
+    .content {
+      .table {  
+        color: #000;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .table-header {
+          display: flex;
+          font-size: .18rem;
+          margin-bottom: 0.2rem;
+          color: #02233b;
+        }
+        .table-row {
+          font-size: .18rem;  
+          margin-bottom: 0.2rem; 
+          display: flex;
+        }
+        .region {
+          flex: 2;
+          display: flex;
+          justify-content: center;
+        }
+        .name1 {
+
+          flex: 2;
+          display: flex;
+          justify-content: center;
+        }
+        .telephone1 {
+          flex: 2;
+          display: flex;
+          justify-content: center;
+        }
+        .operator1 {
+          flex: 2;
+          display: flex;
+          justify-content: center;
+        }
+
+        .name2 {
+          flex: 2;
+          display: flex;
+          justify-content: center;
+        }
+        .telephone2 {
+          flex: 2;
+          display: flex;
+          justify-content: center;
+        }
+        .operator2 {
+          flex: 2;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+
+  
+    .fn-btn {
+      margin-top: 2em;
+    }
+
+
+      .messagesetup {
+        float: left;  
+        font-size: .18rem;
+        margin-left: .3rem;
+      }
+
+      .overproof {
+        float: left;  
+        font-size: .18rem;        
+        margin-left: .2rem;
+      }
+
+      .expiryoutage {
+        float: left; 
+        font-size: .18rem;         
+        margin-left: .2rem;        
+      }
+
+  
+      .btn {
+        display: inline-block;  
+        border: 1px solid;  
+        height: .36rem;  
+        width: .8rem;  
+        line-height: .36rem;
+        border-radius: 4px;  
+      }
+  
+      .left-btn {
+        float: right;  
+        color: #103468;
+        text-align:center;
+        margin-right: .5rem;
+
+      }
+  
+      .right-btn {
+        float: right;  
+        border: 1px solid;  
+        color: #103468;
+        margin-right: .2rem;
+        text-align:center;
+      }
+  } 
+}

@@ -1,0 +1,66 @@
+.drop-down-button-container {
+  font-size: 0.14rem;
+  z-index: 99;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-weight: normal; }
+  .drop-down-button-container .button {
+    flex: 0 0 0.22rem;
+    background-color: #1b4680;
+    padding: 0 0.08rem 0 0.16rem;
+    border: solid 1px #00f5ea;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00f6ea; }
+    .drop-down-button-container .button .triangle-wrapper {
+      position: relative;
+      width: 0.16rem;
+      height: 0.2rem;
+      margin-left: 0.1rem; }
+    .drop-down-button-container .button .triangle-down {
+      border-color: #00A3FF transparent transparent transparent;
+      border-width: 0.1rem 0.08rem;
+      border-style: solid;
+      box-sizing: content-box;
+      height: 0px;
+      width: 0px;
+      position: absolute;
+      top: 25%; }
+    .drop-down-button-container .button .triangle-up {
+      border-color: transparent transparent #fff transparent;
+      border-width: 0.1rem 0.08rem;
+      border-style: solid;
+      box-sizing: content-box;
+      height: 0px;
+      width: 0px;
+      position: absolute;
+      bottom: 25%; }
+  .drop-down-button-container .drop-down-box {
+    position: absolute;
+    top: 0.24rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.03rem;
+    margin-left: 0.08rem;
+    border: solid 1px #00A3FF;
+    border-radius: 0.06rem;
+    background-color: #103468;
+    padding-right: 0.1rem; }
+    .drop-down-button-container .drop-down-box span {
+      padding: 0.04rem 0.1rem; }
+      .drop-down-button-container .drop-down-box span:hover {
+        background-color: rgba(255, 255, 255, 0.1); }
+
+.drop-down-button-container.rect .button {
+  border-radius: 0; }
+
+.drop-down-button-container.rect .drop-down-box {
+  border-radius: 0;
+  margin-left: 0;
+  padding-left: 0.05rem;
+  padding-right: 0.24rem; }

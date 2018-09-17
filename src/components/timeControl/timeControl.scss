@@ -1,0 +1,117 @@
+.time-control-compnent {
+  margin-top: .5rem;
+  white-space: nowrap;
+  &>div{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .day-switch{
+    background: rgba(74,144,226,0.20);
+    border-radius: 1px;
+    margin-right: .25rem;
+    .day{
+      display: inline-block;
+      font-size: .15rem;
+      padding: .05rem .12rem;
+      cursor: pointer;
+      color: #CCCCCC;
+    }
+    .active{
+      background: #037BC9;
+      border-radius: 1px;
+      color: white;
+    }
+  }
+  .time-all{
+    position: relative;
+    display: inline-block;
+    background-color: #47688C;
+    width: calc( 100% - 2.5rem);
+    box-shadow: inset 0 .04rem 0 0 #3D5978;
+    .scale{
+      position: absolute;
+      bottom: 0;
+      width: 4%;
+      height: 100%;
+      background-color: transparent;
+      transform:translateX(-50%);
+      cursor: pointer;
+      &:after{
+        content: "";
+        height: 4px;
+        width: 1px;
+        background-color: #D8D8D8;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .number{
+        position: absolute;
+        top: 200%;
+        left: 50%;
+        transform:translateX(-50%);
+      }
+      &:nth-child(2),&:last-child{
+        &:after{
+          background-color: transparent;
+        }
+      }
+    }
+    .scale1{
+      height: 8px;
+    }
+    .time-slider{
+      background: rgba(3, 123, 201, 0.53);
+      border-radius: 2px;
+      .slide-button{
+        position: relative;
+        width: 0;
+        padding: .02rem;
+        font-size: .15rem;
+        background-color:transparent;
+        color: transparent;
+        cursor: pointer;
+        user-select:none;
+      }
+      .slide-tooltip{
+        position: absolute;
+        padding: .1rem .2rem;
+        bottom: 0.35rem;
+        font-size: .15rem;
+        border-radius: 1px;
+        background-color: #037BC9;
+        white-space: nowrap;
+        color: #fff;
+        user-select:none;
+        &:before{
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-width: 6px;
+          border-style: solid;
+          border-color: #037BC9 transparent transparent transparent;
+          top: 100%;
+          left:50%;
+          transform:translateX(-50%);
+        }
+      }
+    }
+  }
+  .allday{
+    font-size: .15rem;
+    padding: .02rem .12rem;
+    background: rgba(74,144,226,0.50);
+    border-radius: 0 1px 1px 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+    color: #CCCCCC;
+  }
+
+  .allday_active {
+    background: #037BC9;
+    color: white;
+  }
+}

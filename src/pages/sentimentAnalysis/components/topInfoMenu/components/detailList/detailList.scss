@@ -1,0 +1,110 @@
+.info-hot {
+  float: right;
+  width: 31%;
+  height: 0.6rem;
+  font-size: $fontSizeNormal;
+  color: $colorUncheck;
+  line-height: 0.6rem;
+  position: relative;
+  margin-right: 0.3rem;
+
+  > span {
+    margin-left: 0rem;
+  }
+
+  > span:after {
+    display: block;
+    position: absolute;
+    content: '';
+    background: url("../../../../../../image/hot.png") no-repeat left top;
+    background-size: 0.22rem 0.16rem;
+    width: 0.22rem;
+    height: 0.16rem;
+    top: 9%;
+    left: 18%;
+  }
+
+  .hot-news {
+    display: inline-block;
+    width: 78%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    background-color: #0B214C;
+    position: absolute;
+    text-align: left;
+    top: 0.1rem;
+    right: 0;
+    color: $colorUncheck;
+    font-size: 0.16rem;
+    overflow: hidden;
+
+    .word {
+      width: 90%;
+      @include ellipsis;
+      display: inline-block;
+      margin-left: 0.2rem;
+    }
+
+    .wrap {
+      width: 80%;
+      height: 100%;
+    }
+
+    .wrap.roll {
+      transform: translate(0, -0.55rem);
+      transition: transform 0.5s linear;
+    }
+
+    .detail {
+      float: right;
+      margin-right: 0.2rem;
+      color: $button-border-1;
+    }
+  }
+
+  .hot-news-table {
+    position: absolute;
+    width: 78%;
+    height: 2rem;
+    background-color: #0B214C;
+    top: 0.5rem;
+    right: 0;
+    overflow-y: auto;
+    z-index: 200;
+    transition: all 0.2s ease-in-out;
+    opacity: 0.9;
+
+    .row {
+      height: 0.4rem;
+    }
+    .rank {
+      display: inline-block;
+      margin-left: 0.2rem;
+      margin-right: 0.1rem;
+      height: 0.22rem;
+      line-height: 0.22rem;
+      position: relative;
+      top: -0.1rem;
+    }
+
+    .name {
+      display: inline-block;
+      width: 3.7rem;
+      height: 0.22rem;
+      line-height: 0.22rem;
+      @include ellipsis;
+
+      a {
+        color: $colorUncheck;
+        text-decoration: none;
+        width: 0.38rem;
+      }
+
+      a:hover {
+        color: $component-title;
+      }
+    }
+  }
+
+
+}

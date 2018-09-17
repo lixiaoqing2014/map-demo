@@ -1,0 +1,113 @@
+.header-container {
+	height: $header-height;
+	background: rgba(16,52,104,0.8);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#C8103468,endColorstr=#C8103468); /*IE8支持*/
+	color: white;
+	min-width: 1200px;
+	border-bottom: 0.01rem solid rgba(255,255,255,0.5);
+	position: relative;
+	z-index: 1;
+
+	.project-name {
+		width: 1.37rem;
+		height: 0.8rem;
+		float: left;
+		margin-left: 0.3rem;
+
+		img {
+			width: 100%;
+			height: 0.51rem;
+			position: relative;
+			top: 50%;
+			left: 50%;
+			-ms-transform: translate(-50%,-50%);
+			transform: translate(-50%,-50%);
+		}
+	}
+
+	.user {
+		width: 9.27%;
+		height: 0.8rem;
+		float: right;
+		overflow: hidden;
+
+		.login-pic {
+			width: 16.3%;
+			height: 0.29rem;
+			position: relative;
+			top: 50%;
+			-ms-transform: translate(0,-50%);
+			transform: translate(0, -50%);
+		}
+
+		.login-name {
+			display: inline;
+			width: 26.7%;
+			font-size: 0.2rem;
+			margin-left: 0.38rem;
+			margin-top: 0.2em;
+		}
+
+		.quit {
+			float: right;
+			width: 40.3%;
+			height: 0.8rem;
+			margin-top: -0.26rem;
+			border-left: 0.03rem solid rgba(151,151,151,0.45);
+			img {
+				width: 25.92%;
+				height: 0.2rem;
+				position: relative;
+				left: 50%;
+				top: 50%;
+				-ms-transform: translate(-50%,-50%);
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	.nav {
+		height: 0.8rem;
+		margin-left: 3.3rem;
+
+		.nav-item {
+			display: inline-block;
+			font-size: 0.22rem;
+			height: 0.8rem;
+		}
+
+		a {
+			color: $colorNormal;
+			text-decoration: none;
+			height: 0.8rem;
+			padding: 0.25rem;
+			text-align: center;
+			line-height: 0.8rem;
+		}
+
+		.active {
+			font-size: 0.26rem;
+			background-color: rgba(0,163,255,0.2);
+			border-bottom: 0.01rem solid $component-title;
+			a {
+				color: white;
+			}
+		}
+
+		.nav-arrows {
+			border-color: rgba(0,100,100,0) rgba(20,20,20,0) $component-title;
+			border-style: solid;
+			border-width: 0.08rem;
+			height: 0;
+			width: 0;
+			margin: 0 auto;
+			margin-top: -0.16rem;
+		}
+	}
+}
+
+.main-page {
+	// height: calc(100% - 0.8rem);
+	height: 10rem;
+	min-width: 1200px;
+}

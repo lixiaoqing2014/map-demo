@@ -1,0 +1,49 @@
+.info-tab-list {
+  float: left;
+  height: 0.6rem;
+  margin-left: 0.3rem;
+  position: relative;
+
+  div {
+    display: inline-block;
+    height: 0.6rem;
+    text-align: center;
+    position: relative;
+
+    img {
+      width: 0.25rem;
+      height: 0.25rem;
+      margin-left: 0.1rem;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%);
+    }
+
+    span {
+      position: relative;
+      margin-left: 0.3rem;
+      display: inline-block;
+      font-size: $fontSizeTab;
+      height: 0.6rem;
+      line-height: 0.6rem;
+      color: $colorUncheck;
+      text-decoration: none;
+    }
+  }
+
+  .active {
+    span {
+      color: $component-title;
+    }
+  }
+
+  .bar {
+    height: 0;
+    border-bottom: 0.03rem solid $component-title;
+    position: absolute;
+    top: 0.57rem;
+    transition: cubic-bezier(0.645, 0.045, 0.355, 1) .3s;
+  }
+}

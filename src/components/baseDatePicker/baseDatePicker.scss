@@ -1,0 +1,265 @@
+.my-calendar, .my-calendar * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.my-calendar {
+  position: relative;
+  outline: none;
+  width: 300px;
+  border: 1px solid #6f9bc3;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #103468;
+  -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  background-clip: padding-box;
+  line-height: 1.5;
+
+  .my-calendar-date-panel {
+    position: relative;
+
+    .my-calendar-header {
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      >div>a {
+        position: absolute;
+        top: 0;
+        font-size: 12px;
+        color: #97a8be;
+        cursor: pointer;
+
+        &:hover {
+          color: #1890ff;
+        }
+      }
+
+      .my-calendar-prev-year-btn {
+        left: 7px;
+      }
+      .my-calendar-prev-month-btn {
+        left: 36px;
+      }
+      .my-calendar-date-select {
+        font-weight: 500;
+      }
+      .my-calendar-next-year-btn, .my-calendar-cancel {
+        right: 7px;
+      }
+      .my-calendar-next-month-btn {
+        right: 36px;
+      }
+
+      .disabled {
+        color: #7e8da2;
+        background-color: transparent;
+        cursor: not-allowed;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+
+    a:hover, .my-year-select:hover {
+      color: #1890ff;
+      cursor: pointer;
+    }
+
+    .my-calendar-body {
+      padding: 8px 12px;
+
+      table {
+        border-collapse: collapse;
+        max-width: 100%;
+        background-color: transparent;
+        width: 100%;
+      }
+
+      thead {
+        display: table-header-group;
+        vertical-align: middle;
+        border-color: inherit;
+      }
+
+      tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+      }
+
+      tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+
+        td, th {
+          border: 0;
+          text-align: center;
+          color: #8391a5;
+          font-size: 12px;
+          width: 32px;
+          height: 32px;
+          cursor: default;
+        }
+
+        td {
+          cursor: pointer;
+          color: white;
+          position: relative;
+
+          &:hover {
+            background: #20a0ff;
+          }
+        }
+
+        .prev-month, .next-month {
+          color: #ddd;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+
+        .disabled {
+          color: #7e8da2;
+          background-color: transparent;
+          cursor: not-allowed;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+
+        .checked {
+          background-color: #20a0ff;
+        }
+
+        .today:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-top: .5em solid #20a0ff;
+          border-left: .5em solid transparent;
+        }
+      }
+
+      .my-month-table, .my-year-table {
+        td {
+          padding: 20px 3px;
+        }
+      }
+    }
+
+    .my-calendar-footer {
+      border-top: 1px solid #6f9bc3;
+      line-height: 38px;
+      padding: 0 12px;
+      height: 38px;
+
+      .my-calendar-time-select {
+        display: inline-block;
+        float: left;
+
+        .time-disabled {
+          color: #969494;
+
+          &:hover {
+            cursor: not-allowed !important;
+            color: #969494;
+          }
+        }
+
+        input {
+          width: 30px;
+          height: 20px;
+          line-height: 20px;
+          color: white;
+          text-align: center;
+          border: 1px solid #6f9bc3;
+          border-radius: 3px;
+          background-color: transparent;
+
+          &:hover {
+            cursor: pointer;
+            color: #20a0ff;
+          }
+        }
+      }
+
+      .my-calendar-footer-btn, .my-calendar-confirm-btn {
+        text-align: center;
+        display: inline-block;
+        float: right;
+        margin-left: 10px;
+
+        .disabled {
+          color: #969494;
+
+          &:hover {
+            cursor: not-allowed !important;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.my-calendar-entry {
+  display: inline-block;
+  position: relative;
+
+  input {
+    border: none;
+    background-color: #304a72;
+    color: #fff;
+    width: 130px;
+    height: 25px;
+    padding: 0 25px 0 5px;
+    cursor: pointer;
+  }
+
+  .date-icon {
+    background-image: url(../../image/date_icon.png);
+    background-repeat: no-repeat;
+    background-position: 98%;
+    background-size: 15px;
+  }
+
+  .date-clear {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    background-image: url(../../image/close.png);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    display: none;
+  }
+
+  &.has-close:hover {
+    .date-icon {
+      background-image: none;
+    }
+
+    .date-clear {
+      display: inline-block;
+    }
+  }
+}

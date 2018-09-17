@@ -1,0 +1,10 @@
+{
+    "defalutColumn": {
+        "textAlign": "center",
+        "width": "100%",
+        "color": "#CCCCCC",
+        "background": "transparent",
+        "fontSize": ".18rem",
+        "marginBottom": ".15rem"
+    }
+}
