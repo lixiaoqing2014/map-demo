@@ -22,6 +22,7 @@ class Header extends Component {
 
   render() {
   	const { pathname } = this.props.location;
+  	console.log("================",pathname)
 
 	  return(
 	    <div>
@@ -57,7 +58,6 @@ class Header extends Component {
 	        </div>
 	      </header>
 	      <div className="main-page">
-			  <h2>标题</h2>
 	      {this.props.children}
 	      </div>
 	    </div>

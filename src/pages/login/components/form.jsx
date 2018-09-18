@@ -66,7 +66,7 @@ class Form extends Component {
       window.location.href = "http://101.89.80.148/"
       break
     case 1:
-      this.props.history.push("/concensus")
+      this.props.history.push("/index")
       break
     }
   }
