@@ -2,7 +2,6 @@ import React from "react";
 import "./tabListCommon.scss";
 
 function TabListCommon (props) {
-
   const itemLen = props.tabListItem.length;
   const eachItemWidth = 100/itemLen;
 
