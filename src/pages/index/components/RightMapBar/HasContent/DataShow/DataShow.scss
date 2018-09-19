@@ -1,0 +1,68 @@
+$petition-company-content-height: 5.15rem;
+$petition-company-header-height: 1rem;
+
+.dataShow {
+  margin-top: 0.6rem;
+  position: relative;
+  width: 100%;
+  color: white;
+  cursor: default;
+  background: inherit;
+  border: none;
+  min-width: 270px;
+  height: 1.14rem;
+  overflow: hidden;
+
+  .el-table-content {
+    padding-right: 0.05rem;
+
+    &:hover {
+      overflow-y: auto;
+    }
+  }
+
+  .el-table__row {
+    font-size: 0.2rem;
+    box-sizing: border-box;
+    margin-bottom: 0.19rem;
+
+    .comp {
+      display: inline-block;
+      width: 30%;
+      padding-right: 0.2rem;
+    }
+
+    .bar {
+      display: inline-block;
+      width: 2.8rem;
+      text-align: left;
+      font-size: 0.16rem;
+      margin-top: .02rem;
+      color: $component-title;
+      background: #4F637C;
+      height: .16rem;
+
+      span {
+        display: inline-block;
+        height: 0.16rem;
+        margin-right: 0.05rem;
+        float: left;
+        background: -webkit-linear-gradient(left, #00A3FF, #25BFE5); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #00A3FF, #25BFE5); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #00A3FF, #25BFE5); /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #00A3FF, #25BFE5); /* 标准的语法 */
+      }
+    }
+
+    .done {
+      float: right;
+      color: #00A3FF;
+      width: 0.9rem;
+    }
+  }
+
+  .nodata-tip {
+    text-align: center;
+    display: block;
+  }
+}
