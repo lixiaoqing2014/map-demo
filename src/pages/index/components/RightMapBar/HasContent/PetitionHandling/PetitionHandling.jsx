@@ -87,7 +87,6 @@ export default class PetitionHandling extends Component {
 
     render () {
         const {complainSum, transactSum, similarCompare, annularCompare, similarTrend, annularTrend} = this.state.data
-        console.log("测试......",this.state.data)
         const percentageOfDone = ((transactSum || 0) / (complainSum || 1) * 100).toFixed(1);
         return (
             <div className="petition-handling-container">

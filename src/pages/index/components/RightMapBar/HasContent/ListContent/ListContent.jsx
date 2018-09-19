@@ -51,6 +51,7 @@ class ListContent extends Component{
         }
 
     }
+ 
     render(){
 
         return (
@@ -58,7 +59,9 @@ class ListContent extends Component{
                 style={{width: "100%"}}
                 columns={this.state.columns}
                 maxHeight={320}
-                data={this.state.data}
+                data={this.state.data} onRowClick={(row,event,column)=>{
+                    console.log(row,event,column)
+            }}
             />
         )
 
