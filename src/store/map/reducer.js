@@ -1,23 +1,21 @@
 
 const initState = {
-	mapProperties: { 
-        basemap: "satellite",
+    mapProperties: {
+        basemap: "streets",
         ground: "world-elevation"
     },
     viewProperties: {
-        center: [-122.4443, 47.2529],
-        zoom: 1,
-        scale: 500000000
+        center: [116.46, 39.92]
     }
 }
 
 export const map = (state = initState, action) => {
     switch (action.type) {
-      case "CREATE_MAP":
-        return {
-         
-        }
-      default:
-        return state
+        case "move":
+            return {
+                ...state, viewProperties: action.payload
+            }
+        default:
+            return state
     }
-  }
+}
