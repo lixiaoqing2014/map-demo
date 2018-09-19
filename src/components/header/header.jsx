@@ -3,8 +3,8 @@ import "./header.scss";
 
 import { Link } from "react-router-dom";
 
-import iconUser from "image/Bitmap@1x.png";
-import iconQuit from "image/quit.png";
+// import iconUser from "image/Bitmap@1x.png";
+// import iconQuit from "image/quit.png";
 
 const navItem = [
     { name: "首页", url: "/index"},
@@ -31,17 +31,17 @@ class Header extends Component {
 				廊坊市空气质量智能管控平台
 	        </div>
 
-	        <div className="user">
-	          <img src={iconUser} className="login-pic" alt="此处应有图片"></img>
-	          <div className="login-name clickable">
-              李建
-	          </div>
-	          <Link to="/">
-	            <div className="quit clickable">
-	              <img src={iconQuit} alt="此处应有图片"></img>
-	            </div>
-	          </Link>
-	        </div>
+	        {/*<div className="user">*/}
+	          {/*<img src={iconUser} className="login-pic" alt="此处应有图片"></img>*/}
+	          {/*<div className="login-name clickable">*/}
+              {/*李建*/}
+	          {/*</div>*/}
+	          {/*<Link to="/">*/}
+	            {/*<div className="quit clickable">*/}
+	              {/*<img src={iconQuit} alt="此处应有图片"></img>*/}
+	            {/*</div>*/}
+	          {/*</Link>*/}
+	        {/*</div>*/}
 
 	        <div className="nav" id="page-nav">
             {
