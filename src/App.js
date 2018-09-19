@@ -44,13 +44,13 @@ class App extends Component {
         <Switch>
 
           <Header>
+        <Route path="/" exact component={index} />
             <Route path="/index" exact component={index} />
             <Route path="/environmentMonitor" exact component={environmentMonitor} />
             <Route path="/originalList" exact component={originalList} />
             <Route path="/sceneLookforecast" exact component={sceneLookforecast} />
             <Route path="/totalReport" exact component={totalReport} />
             <Route path="/totalDevelop" exact component={totalDevelop} />
-            <Redirect to="/index"/>
           </Header>
         </Switch>
       </BrowserRouter>
