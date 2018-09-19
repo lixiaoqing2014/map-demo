@@ -42,8 +42,9 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={login} />
+
           <Header>
+        <Route path="/" exact component={index} />
             <Route path="/index" exact component={index} />
             <Route path="/environmentMonitor" exact component={environmentMonitor} />
             <Route path="/originalList" exact component={originalList} />
@@ -51,7 +52,6 @@ class App extends Component {
             <Route path="/totalReport" exact component={totalReport} />
             <Route path="/totalDevelop" exact component={totalDevelop} />
           </Header>
-          <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     );
