@@ -32,7 +32,7 @@ class App extends Component {
     let fontSize = 100 * (bodyWidth / 1920);
     html.style.fontSize = fontSize + "px";
     document.querySelector("#root").style.minHeight = bodyHeight + "px";
-    // document.querySelector("#root").style.width = bodyWidth + "px";
+    document.querySelector("#root").style.width = bodyWidth + "px";
     this.props.changeRootFont(fontSize, height);
   }
   componentDidMount() {

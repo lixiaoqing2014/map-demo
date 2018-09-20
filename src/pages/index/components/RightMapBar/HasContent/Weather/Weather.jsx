@@ -50,9 +50,14 @@ export default class Weather extends Component {
         };
     }
     shouldComponentUpdate(nextProps,nextState) {
-        console.log(nextProps,nextState);
-        this.getRealtime(); // 获取实时空气质量状况
-        this.getTwodayqua(); // 获取未来2日空气质量预报 (未来两日包含当日的天气情况)
+        console.log(nextState)
+        if(JSON.stringify(nextState.data) != "{}" && nextState.weatherdata.length != 0 ){
+            this.getRealtime(); // 获取实时空气质量状况
+            this.getTwodayqua(); // 获取未来2日空气质量预报 (未来两日包含当日的天气情况);
+            return true;
+        }else{
+            return false
+        }
     }
 
     getRealtime = () => {
