@@ -22,8 +22,6 @@ class Header extends Component {
 
   render() {
   	const { pathname } = this.props.location;
-  	console.log("================",pathname)
-
 	  return(
 	    <div>
 	      <header className="header-container">

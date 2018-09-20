@@ -51,6 +51,7 @@ class App extends Component {
             <Route path="/sceneLookforecast" exact component={sceneLookforecast} />
             <Route path="/totalReport" exact component={totalReport} />
             <Route path="/totalDevelop" exact component={totalDevelop} />
+
           </Header>
         </Switch>
       </BrowserRouter>

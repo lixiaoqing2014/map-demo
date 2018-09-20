@@ -49,8 +49,8 @@ export default class Weather extends Component {
             weatherdata: []
         };
     }
-
-    componentDidMount() {
+    shouldComponentUpdate(nextProps,nextState) {
+        console.log(nextProps,nextState);
         this.getRealtime(); // 获取实时空气质量状况
         this.getTwodayqua(); // 获取未来2日空气质量预报 (未来两日包含当日的天气情况)
     }
@@ -83,6 +83,7 @@ export default class Weather extends Component {
                 console.log(`Fetch error: ${err}`);
             });
     };
+
     render() {
         let obj = [];
         let aqicolor = {};
@@ -145,8 +146,8 @@ export default class Weather extends Component {
         return (
             <div className="env-left-pageone-container">
                 <div className="top-box">
-
-                    {(this.state.data === null || this.state.data.length === 0 || JSON.stringify(this.state.data) === "{}")
+                    {
+                        (this.state.data === null || this.state.data.length === 0 || JSON.stringify(this.state.data) === "{}")
                     && (this.state.weatherdata === null || this.state.weatherdata.length === 0 || JSON.stringify(this.weatherdata.data) === "{}") ? (
                         <div className="quality-box">
                             <div className="nodata-box">
