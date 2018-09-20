@@ -18,9 +18,9 @@ class App extends Component {
     window.onresize = this.setHtmlFontSize;
     this.setHtmlFontSize();
   }
-  componentWillMount(){
-     }
-  setHtmlFontSize = () =>  {
+  componentWillMount() {
+  }
+  setHtmlFontSize = () => {
     let html = document.documentElement;
     let height = html.clientHeight;
     let bodyWidth = html.clientWidth;
@@ -36,15 +36,14 @@ class App extends Component {
     this.props.changeRootFont(fontSize, height);
   }
   componentDidMount() {
-    
+
   }
   render() {
     return (
       <BrowserRouter>
         <Switch>
-
           <Header>
-        <Route path="/" exact component={index} />
+            <Route path="/" exact component={index} />
             <Route path="/index" exact component={index} />
             <Route path="/environmentMonitor" exact component={environmentMonitor} />
             <Route path="/originalList" exact component={originalList} />
@@ -59,7 +58,7 @@ class App extends Component {
 }
 
 export default connect(state => ({
- 
+
 }), {
-  changeRootFont,
-})(App);
+    changeRootFont,
+  })(App);
