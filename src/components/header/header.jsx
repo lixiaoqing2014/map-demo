@@ -25,7 +25,7 @@ class Header extends Component {
   	console.log("================",pathname)
 
 	  return(
-	    <div>
+	    <div className="page">
 	      <header className="header-container">
 	        <div className="project-name">
 				廊坊市空气质量智能管控平台
