@@ -74,16 +74,16 @@ export default class PetitionHandling extends Component {
         this.echart = myChart;
     };
 
-    renderArrow = (diret) => {
-       return <span className={`arrow-${diret ? "up" : (diret === -1 ? "down" : "")}`} />
-    };
+    // renderArrow = (diret) => {
+    //    return <span className={`arrow-${diret ? "up" : (diret === -1 ? "down" : "")}`} />
+    // };
 
-    componentWillMount () {
-        if (this.echart) {
-            this.echart.clear();
-            this.echart.dispose();
-        }
-    }
+    // componentWillMount () {
+    //     if (this.echart) {
+    //         this.echart.clear();
+    //         this.echart.dispose();
+    //     }
+    // }
 
     render () {
         const {complainSum, transactSum, similarCompare, annularCompare, similarTrend, annularTrend} = this.state.data

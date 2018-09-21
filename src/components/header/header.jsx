@@ -23,7 +23,7 @@ class Header extends Component {
   render() {
   	const { pathname } = this.props.location;
 	  return(
-	    <div>
+	    <div className="page">
 	      <header className="header-container">
 	        <div className="project-name">
 				廊坊市空气质量智能管控平台

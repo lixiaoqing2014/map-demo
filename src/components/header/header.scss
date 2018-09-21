@@ -4,8 +4,11 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#C8103468,endColorstr=#C8103468); /*IE8支持*/
 	color: white;
 	min-width: 1200px;
+	width: 100%;
 	border-bottom: 0.01rem solid rgba(255,255,255,0.5);
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
 	z-index: 1;
 
 	.project-name {
@@ -70,7 +73,7 @@
 	.nav {
 		height: 0.8rem;
 		margin-left: 3.3rem;
-
+		text-align: right;
 		.nav-item {
 			display: inline-block;
 			font-size: 0.22rem;
@@ -106,9 +109,12 @@
 		}
 	}
 }
-
+.page {
+	width: 100%;
+	height: 100%;
+}
 .main-page {
 	// height: calc(100% - 0.8rem);
-	height: 10rem;
+	height: 100%;
 	min-width: 1200px;
 }

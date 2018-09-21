@@ -1,0 +1,51 @@
+
+.quality {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 5.5rem;
+    margin: auto;
+    border-radius: 0.06rem;
+    display: inline-block;
+    border: 0.01rem solid #AEC1D2;
+    background: #02203B;
+    cursor: pointer;
+    .quality-item {
+        position: relative;
+        display: inline-block;
+        width: 0.9rem;
+        text-align: center;
+        height: 0.5rem;
+        border: 0.01rem solid #AEC1D2;
+        .item-scale {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 0.9rem;
+            line-height: 0.5rem;
+            height: 0.5rem;
+            z-index: 1;
+            background: #02203B;
+            border-right: 0.01rem solid #AEC1D2;
+        }
+        
+        .item-scale:hover {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            line-height: 1rem;
+            border: solid 0.01rem #AEC1D2;
+            font-size: 0.26rem;
+        }
+        
+    }
+    .quality-item:hover {
+        width: 1rem;
+    }
+    .quality-item:last-child {
+        border-right: none;
+    }
+    
+}
