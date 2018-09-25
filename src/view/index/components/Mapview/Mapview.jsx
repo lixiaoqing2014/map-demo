@@ -1,70 +1,83 @@
 import React, { Component } from "react"
 import "./Mapview.scss"
 import { loadModules } from "react-arcgis"
-import { connect } from "react-redux"
-
-@connect(
-    state => state.map
-)
 
 export default class MapVIew extends Component {
     componentDidMount() {
-        // var map = new Map(this.props.mapProperties);
-        // var view = new SceneView({
-        //     container: this.viewDiv,
-        //     map: map,
-        //     ...this.props.viewProperties
-        // });
-        // var searchWidget = new Search({
-        //     view: view
-        // });
-        // view.ui.add(searchWidget, {
-        //     position: "top-right"
-        // });
     }
     mapDom() {
         loadModules(["esri/Map",
             "esri/views/MapView",
             "esri/views/SceneView",
-            "esri/widgets/Search"
-        ]).then(([Map, MapView, SceneView, Search]) => {
+            "esri/widgets/Search",
+            "esri/geometry/Point",
+            "esri/symbols/TextSymbol",
+            "esri/symbols/PictureMarkerSymbol",
+            "esri/symbols/SimpleMarkerSymbol",
+            "esri/Graphic",
+            "esri/layers/support/LabelClass",
+            "esri/layers/GraphicsLayer",
+            "esri/Color",
+            "esri/symbols/Font",
+            "esri/layers/MapImageLayer",
+            "esri/tasks/Locator",
+            // "esri/InfoTemplate",
+            "dojo/domReady!"
+        ]).then(([Map, MapView, SceneView, Search, Point, TextSymbol, 
+            PictureMarkerSymbol, SimpleMarkerSymbol, Graphic, LabelClass, 
+            GraphicsLayer, Color, Font, MapImageLayer, Locator
+            ]) => {
 
-            var switchButton = this.input
-            var appConfig = {
+// 创建地图  satrt
+            let appConfig = {
                 mapView: null,
                 sceneView: null,
                 activeView: null,
                 container: this.viewDiv  // use same container for views
             };
 
-            var initialViewParams = {
+            let initialViewParams = {
                 zoom: 12,
-                center: [-122.43759993450347, 37.772798684981126],
+                center: [113.5, 23.1], 
                 container: appConfig.container
             };
-            var map = new Map({
+
+            let map = new Map({
                 basemap: "streets",
-                ground: "world-elevation"
             });
+
             // create 2D view and and set active
             appConfig.mapView = createView(initialViewParams, "2d");
             appConfig.mapView.map = map;
             appConfig.activeView = appConfig.mapView;
 
-            // create 3D view, won't initialize until container is set
+            // create 3D view, won"t initialize until container is set
             initialViewParams.container = null;
             initialViewParams.map = map;
             appConfig.sceneView = createView(initialViewParams, "3d");
 
+            // convenience function for creating a 2D or 3D view
+            function createView(params, type) {
+                let view;
+                let is2D = type === "2d";
+                if (is2D) {
+                    view = new MapView(params);
+                } else {
+                    view = new SceneView(params);
+                }
+                search(view)
+                return view;
+            }
+// 创建地图  end
+// 2D/3D 切换 start
+            let switchButton = this.input
             // switch the view between 2D and 3D each time the button is clicked
             switchButton.addEventListener("click", function () {
                 switchView();
             });
-
             // Switches the view from 2D to 3D and vice versa
             function switchView() {
-                var is3D = appConfig.activeView.type === "3d";
-
+                let is3D = appConfig.activeView.type === "3d";
                 // remove the reference to the container for the previous view
                 appConfig.activeView.container = null;
 
@@ -80,28 +93,23 @@ export default class MapVIew extends Component {
                     switchButton.value = "2D";
                 }
             }
-
-            // convenience function for creating a 2D or 3D view
-            function createView(params, type) {
-                var view;
-                var is2D = type === "2d";
-                if (is2D) {
-                    view = new MapView(params);
-                } else {
-                    view = new SceneView(params);
-                }
-                search(view)
-                return view;
-            }
-            // search
+ // 2D/3D 切换 end
+ // 搜索  start           
+            // 搜索
             function search (view) {
-                var searchWidget = new Search({
+                let searchWidget = new Search({
                     view: view
                 });
                 view.ui.add(searchWidget, {
                     position: "top-right"
                 });
             }
+ // 搜索  end
+
+                var mapCenter = new Point(103.847, 36.0473, {"wkid":4326});  
+                map.centerAndZoom(mapCenter,3);
+ 
+
         })
         return (
             <div>
@@ -113,10 +121,10 @@ export default class MapVIew extends Component {
                 </div>
                 <div id="infoDiv">
                     <input className="esri-component esri-widget--button esri-widget esri-interactive"
-                        type="button"
-                        id="switch-btn"
-                        value="3D"
-                        ref={(input) => { this.input = input }}
+                           type="button"
+                           id="switch-btn"
+                           value="3D"
+                           ref={(input) => { this.input = input }}
                     />
                 </div>
             </div>

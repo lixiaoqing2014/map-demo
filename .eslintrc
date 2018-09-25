@@ -23,7 +23,7 @@
         2
       ],
       "quotes": [
-        "error",
+        "off",
         "double"
       ],
       "no-console": "off",

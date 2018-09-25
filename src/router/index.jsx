@@ -8,14 +8,14 @@ import sceneLookforecast from "../pages/sceneLookforecast/index"
 import totalReport from "../pages/totalReport/index"
 import totalDevelop from "../pages/totalDevelop/index"
 import Header from "../components/header/header";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 
 const AppRouter = () => (
     <BrowserRouter>
         <Switch>
+            <Route path="/" exact component={login} />
             <Header>
-                <Route path="/" exact component={login} />
                 <Route path="/index" exact component={index} />
             </Header>
         </Switch>
