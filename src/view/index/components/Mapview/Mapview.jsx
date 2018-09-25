@@ -106,8 +106,8 @@ export default class MapVIew extends Component {
             }
  // 搜索  end
 
-                var mapCenter = new Point(103.847, 36.0473, {"wkid":4326});  
-                map.centerAndZoom(mapCenter,3);
+                // var mapCenter = new Point(103.847, 36.0473, {"wkid":4326});  
+                // map.centerAndZoom(mapCenter,3);
  
 
         })
