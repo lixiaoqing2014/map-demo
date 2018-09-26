@@ -1,32 +1,22 @@
-import React, { Component } from "react"
+import React, {Component} from "react"
 import "./Mapview.scss"
-import { loadModules } from "react-arcgis"
+import esriloader from "esri-loader"
+import Img from "../../../../image/Bitmap@1x.png"
 
 export default class MapVIew extends Component {
     componentDidMount() {
     }
+
     mapDom() {
-        loadModules(["esri/Map",
+        esriloader.loadModules(["esri/Map",
             "esri/views/MapView",
             "esri/views/SceneView",
-            "esri/widgets/Search",
-            "esri/geometry/Point",
-            "esri/symbols/TextSymbol",
-            "esri/symbols/PictureMarkerSymbol",
-            "esri/symbols/SimpleMarkerSymbol",
-            "esri/Graphic",
-            "esri/layers/support/LabelClass",
+            "esri/layers/TileLayer",
             "esri/layers/GraphicsLayer",
-            "esri/Color",
-            "esri/symbols/Font",
-            "esri/layers/MapImageLayer",
-            "esri/tasks/Locator",
-            // "esri/InfoTemplate",
+            "esri/Graphic",
+            "esri/widgets/Search",
             "dojo/domReady!"
-        ]).then(([Map, MapView, SceneView, Search, Point, TextSymbol, 
-            PictureMarkerSymbol, SimpleMarkerSymbol, Graphic, LabelClass, 
-            GraphicsLayer, Color, Font, MapImageLayer, Locator
-            ]) => {
+        ]).then(([Map, MapView, SceneView,TileLayer,GraphicsLayer,Graphic,Search]) => {
 
 // 创建地图  satrt
             let appConfig = {
@@ -38,13 +28,19 @@ export default class MapVIew extends Component {
 
             let initialViewParams = {
                 zoom: 12,
-                center: [113.5, 23.1], 
+                center: [114.062252, 22.559137],
                 container: appConfig.container
             };
-
+            var layer = new TileLayer({
+                url: "https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer"
+            });
             let map = new Map({
                 basemap: "streets",
+                layers:layer
             });
+
+
+
 
             // create 2D view and and set active
             appConfig.mapView = createView(initialViewParams, "2d");
@@ -68,6 +64,7 @@ export default class MapVIew extends Component {
                 search(view)
                 return view;
             }
+
 // 创建地图  end
 // 2D/3D 切换 start
             let switchButton = this.input
@@ -75,6 +72,7 @@ export default class MapVIew extends Component {
             switchButton.addEventListener("click", function () {
                 switchView();
             });
+
             // Switches the view from 2D to 3D and vice versa
             function switchView() {
                 let is3D = appConfig.activeView.type === "3d";
@@ -93,10 +91,11 @@ export default class MapVIew extends Component {
                     switchButton.value = "2D";
                 }
             }
- // 2D/3D 切换 end
- // 搜索  start           
+
+            // 2D/3D 切换 end
+            // 搜索  start
             // 搜索
-            function search (view) {
+            function search(view) {
                 let searchWidget = new Search({
                     view: view
                 });
@@ -104,19 +103,44 @@ export default class MapVIew extends Component {
                     position: "top-right"
                 });
             }
- // 搜索  end
 
-                // var mapCenter = new Point(103.847, 36.0473, {"wkid":4326});  
-                // map.centerAndZoom(mapCenter,3);
- 
+            var pointGraphic = new Graphic({
+                geometry: {
+                    type: "point", // autocasts as new Point()
+                    longitude: 114.063366,
+                    latitude: 22.549683
+                    },
+                symbol: {
+                    type: "picture-marker",
+                    symbolLayers: [{
+                        type: "icon",
+                        resource: {
+                            href: {Img} //指向本地图片地址
+                            },
+                        size: 20
+                    }],
+                    verticalOffset: {
+                        screenLength: 40,
+                        maxWorldLength: 200,
+                        minWorldLength: 35
+                    }
+                    },
+                attributes: {
+                    Name: "WebStyleSymbols",
+                    Type: "test",
+                    Action: "test"
+                }
+            });
 
         })
         return (
             <div>
                 <div
-                    ref={(dom) => { this.viewDiv = dom }}
+                    ref={(dom) => {
+                        this.viewDiv = dom
+                    }}
                     className="viewDiv"
-                    style={{ width: "100%", height: "100vh" }}
+                    style={{width: "100%", height: "100vh"}}
                 >
                 </div>
                 <div id="infoDiv">
@@ -124,12 +148,15 @@ export default class MapVIew extends Component {
                            type="button"
                            id="switch-btn"
                            value="3D"
-                           ref={(input) => { this.input = input }}
+                           ref={(input) => {
+                               this.input = input
+                           }}
                     />
                 </div>
             </div>
         )
     }
+
     render() {
         return (
             <div>

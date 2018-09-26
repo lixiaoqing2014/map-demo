@@ -13,10 +13,11 @@ class Field extends Component {
   }
 
   _renderInput() {
-    const {type, label, name, value} = this.props
+    const {type, label, name, value} = this.props;
     return (<span className="field-container">
-      <label className="field-label">{label}</label>
-      <input className="field-input" type={type} name={name} value={value} onChange={this.handleInputChange} />
+      {/*<label className="field-label">{label}</label>*/}
+      {/*<input className="field-input" type={type} name={name} value={value} onChange={this.handleInputChange} />*/}
+      <input className="field-input-type" type={type} name={name} value={value} onChange={this.handleInputChange} placeholder={label}/>
     </span>)
   }
 

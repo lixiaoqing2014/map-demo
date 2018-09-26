@@ -1,8 +1,6 @@
 import React, {Component} from "react"
 import {Layout, Carousel} from "element-react"
 import "element-theme-default";
-import Drawer from "rc-drawer";
-import "rc-drawer/assets/index.css";
 import echarts from "echarts"
 import MyFetch from "../../../../components/global/myFetch"
 import {sentimentApi} from "../../../../components/global/apiGroup"
@@ -327,6 +325,4 @@ class Sliderbar extends Component {
         )
     }
 }
-
-
 export default Sliderbar

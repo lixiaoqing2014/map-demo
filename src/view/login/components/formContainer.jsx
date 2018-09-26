@@ -8,11 +8,6 @@ class FormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {loginType: 0}
-    this.onTabClick = this.onTabClick.bind(this)
-  }
-
-  onTabClick(type, ev) {
-    this.setState({loginType: type}) 
   }
 
   render() {
@@ -31,12 +26,7 @@ class FormContainer extends Component {
 
     return (
       <div className="form-container">
-        <div>
-          <ul className="tab clickable">
-            <li className={tabItemClass1} onClick={this.onTabClick.bind(this,0)}><a>大屏展示版</a></li>
-            <li className={tabItemClass2} onClick={this.onTabClick.bind(this,1)}><a>PC业务版</a></li>
-          </ul>
-        </div>
+          <h2><span>用户登录</span></h2>
         <div className="form-box"><Form loginType={loginType} keepAccount={true} onSubmit={onFormSubmit} /></div>
       </div>
     )

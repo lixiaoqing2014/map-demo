@@ -26,7 +26,7 @@ class Header extends Component {
 	    <div className="page">
 	      <header className="header-container">
 	        <div className="project-name">
-				廊坊市空气质量智能管控平台
+				<span>S</span>深圳智慧环保系统
 	        </div>
 
 	        {/*<div className="user">*/}

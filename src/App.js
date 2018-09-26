@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import { changeRootFont } from "store/UI/action";
 import AppRouter from "./router/index";
 
-
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,24 +13,19 @@ class App extends Component {
   componentWillMount() {
   }
   setHtmlFontSize = () => {
-    let html = document.documentElement;
-    let height = html.clientHeight;
-    let bodyWidth = html.clientWidth;
-    // let bodyHeight = html.clientWidth * (1080 / 1920);
-    // if (bodyHeight > html.clientHeight) {
-    //   bodyHeight = html.clientHeight
-    //   bodyWidth = bodyHeight / (1080 / 1920)
-    // }
-    let fontSize = 100 * (bodyWidth / 1920);
-    if (fontSize >= 62.5) {
+      let html = document.documentElement;
+      let height = html.clientHeight;
+      let bodyWidth = html.clientWidth;
+      let bodyHeight = html.clientWidth * (1080 / 1920);
+      if (bodyHeight > html.clientHeight) {
+          bodyHeight = html.clientHeight
+          bodyWidth = bodyHeight / (1080 / 1920)
+      }
+      let fontSize = 100 * (bodyWidth / 1920);
       html.style.fontSize = fontSize + "px";
-    } else {
-      html.style.fontSize = "62.5px"
-    }
-   
-    // document.querySelector("#root").style.minHeight = bodyHeight + "px";
-    // document.querySelector("#root").style.width = bodyWidth + "px";
-    this.props.changeRootFont(fontSize, height);
+      document.querySelector("#root").style.minHeight = bodyHeight + "px";
+      // document.querySelector("#root").style.width = bodyWidth + "px";
+      this.props.changeRootFont(fontSize, height);
   }
   componentDidMount() {
 

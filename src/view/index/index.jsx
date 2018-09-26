@@ -1,5 +1,4 @@
-
-import React, {Component} from 'react'
+import React, {Component} from "react"
 import "./index.scss"
 import Mapview from "./components/Mapview/Mapview"
 import Sliderbar from "./components/SliderBar/SliderBar"

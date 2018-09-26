@@ -2,30 +2,41 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: url('../../image/login/full-background.jpg') no-repeat center;
+  background: url('../../image/login/full-background.png') no-repeat center;
   background-size: cover;
 }
 
 .login-logo {
   position: absolute;
   z-index: 10;
-  left: 3.05rem;
-  top: 2.5rem;
+  left: 16rem;
+  top: 0.5rem;
   width: 6.2rem;
   height: 3.3rem;
-  background: url('../../image/login/logo_new@1x.png') no-repeat center;
+  background: url('../../image/login/logo.jpg') no-repeat center;
   background-size: 100%;
 }
 
 .login-form {
   position: absolute;
   z-index: 10;
-  right: 1.8rem;
-  top: 1.7rem;
+  left: 14rem;
+  top: 2.6rem;
 }
 
 .form-container {
-  background: #113367;
+  background: #34435F;
+  border-radius: .2rem;
+}
+.form-container h2{
+  font-size: .5rem;
+  font-weight: normal;
+  text-align: center;
+}
+.form-container h2 span{
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: .2rem;
+  padding-top: .2rem;
 }
 
 .form-container .form-box {
@@ -51,7 +62,8 @@
   line-height: 0.6rem;
 }
 
-.form-container .form .field-container .field-input{
+.form-container .form .field-container .field-input,.form-container .form .field-container .field-input-type{
+  background-color: #ff0000;
   display: inline-block;
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -61,7 +73,8 @@
   border-radius: 0.1rem;
   padding: .15rem .1rem .15rem 1.2rem;
   border: 2px solid #fff;
-  background: #1e466e;
+  /*background: #1e466e;*/
+
 }
 
 .form-container .form .field-container .field-input:focus{
@@ -96,9 +109,9 @@
 
 .form-container .form .form-checkbox-block .right-link a{
   font-size: .18rem;
-  color: #00f6e9;
+  color: #509BDF;
 }
- 
+
 .form-container .form .form-checkbox-block .field-checkbox input[type=checkbox] {
   display: none;
 }
@@ -109,7 +122,7 @@
   width: .26rem;
   height: .26rem;
   box-sizing: border-box;
-  border: 2px solid #6ff3e9;
+  border: 2px solid #509BDF;
   margin-right: .1rem;
   border-radius: 2px;
 }
@@ -125,13 +138,13 @@
   border-radius: 2px;
   border-width: 2px;
   border-style: solid;
-  border-color: transparent transparent #6ff3e9 #6ff3e9;
+  border-color: transparent transparent #509BDF #509BDF;
   transform-origin: 50%;
   transform: rotate(-45deg);
-} 
+}
 
 .form-container .form .form-checkbox-block .field-checkbox .checkbox-label {
-  color: #9b9b9b;
+  color: #509BDF;
   font-size: .18rem;
   vertical-align: top;
 }
@@ -193,7 +206,8 @@
 }
 
 .form-container .button-primary {
-  background: #006dae;
+  /*background: #006dae;*/
+  background: linear-gradient(to right,#318CDE,#499BE4);
   color: #fff;
 }
 

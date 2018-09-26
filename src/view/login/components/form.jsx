@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 // import {widthRouter} from 'react-router-dom'
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 import Field from "./field"
 
 const USER_CONFIG_0 = {
@@ -96,7 +96,7 @@ class Form extends Component {
         <div key={1}><Field type={"text"} label={"用户名"} name={"username"} value={username} onChange={this.onChange}/></div>
         <div key={2}><Field type={"password"} label={"密码"} name={"password"} value={password} onChange={this.onChange}/></div>
         <div key={3} className="form-checkbox-block">
-          <span className="left-checkbox"><Field type={"checkbox"} label={"记住用户名和密码"} name={"keepAccount"} value={keepAccount} onChange={this.onChange} defaultValue={true} /></span>
+          <span className="left-checkbox"><Field type={"checkbox"} label={"自动登录"} name={"keepAccount"} value={keepAccount} onChange={this.onChange} defaultValue={true} /></span>
           <span className="right-link"><a href="#">忘记密码？</a></span>
         </div>
         <div key={4} className="form-submit-block">
