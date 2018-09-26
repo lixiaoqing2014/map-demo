@@ -2,7 +2,6 @@ import React, {Component} from "react"
 import "./Mapview.scss"
 import esriloader from "esri-loader"
 import Img from "../../../../image/Bitmap@1x.png"
-
 export default class MapVIew extends Component {
     componentDidMount() {
     }

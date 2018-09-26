@@ -9,10 +9,11 @@
 .login-logo {
   position: absolute;
   z-index: 10;
-  left: 16rem;
-  top: 0.5rem;
-  width: 6.2rem;
-  height: 3.3rem;
+  left: 50%;
+  top:1rem;
+  margin-left: -4.1rem;
+  width: 8.2rem;
+  height: 3.2rem;
   background: url('../../image/login/logo.jpg') no-repeat center;
   background-size: 100%;
 }
@@ -20,23 +21,29 @@
 .login-form {
   position: absolute;
   z-index: 10;
-  left: 14rem;
-  top: 2.6rem;
+  left: 50%;
+  top: 4.0rem;
+  margin-left: -3.05rem;
 }
 
 .form-container {
-  background: #34435F;
+  background: rgba(52,67,95,0.38);
   border-radius: .2rem;
+  box-shadow: -10px -10px 10px 0 rgba(2,32,59,0.38), 10px 10px 10px 0 rgba(2,32,59,0.40);
 }
 .form-container h2{
   font-size: .5rem;
   font-weight: normal;
   text-align: center;
+  padding-top: .2rem;
 }
 .form-container h2 span{
   border-bottom: 1px solid rgba(255,255,255,0.5);
   padding-bottom: .2rem;
   padding-top: .2rem;
+  font-size: .3rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .form-container .form-box {
