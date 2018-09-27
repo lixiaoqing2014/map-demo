@@ -2,8 +2,8 @@ require("babel-polyfill");
 require("es6-promise").polyfill();
 import "whatwg-fetch";
 
-let host = "http://14.116.179.241:3000";
-//let host = "";
+//let host = "http://14.116.179.241:3000";
+let host = "";
 
 if (process.env.NODE_ENV === "production") {
   host = "";
