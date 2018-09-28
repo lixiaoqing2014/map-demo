@@ -10,6 +10,7 @@ const data = [
     {key: "NO2", data: {}},
     {key: "CO", data: {}},
     {key: "O3", data: {}},
+    {key: "综合", data: {}},
     {key: "温度", data: {}},
     {key: "湿度", data: {}},
     {key: "风向", data: {}},

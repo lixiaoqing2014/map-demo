@@ -4,12 +4,12 @@
     top: 1rem;
     width: 4.8rem;
     height: 9rem;
-    background: rgba(16, 52, 104, 0.8);
+    background: rgba(2,32,59,0.8);
     z-index: 1;
     transition: left 1s;
     .nav {
-        height: 0.6rem;  
-        background: rgba(16, 52, 104, 1);
+        height: 0.6rem;
+        background: #02203B;
         border-bottom: 0.01rem solid rgba(0,163,255,0.2);
         position: relative;
         .nav-item {

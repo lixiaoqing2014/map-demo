@@ -16,7 +16,7 @@ const weather = [
     {key: "风向", value: "西北方向"},
     {key: "风力", value: "西南方向"},
     {key: "首要污染物", value: "PM2.5"},
-    {key: "预计空气质量", value: "良"},
+    {key: "空气质量", value: "良"},
 ]
 const weather_date = [
     {key: "PM2.5", value: 53},
@@ -151,7 +151,7 @@ class Sliderbar extends Component {
         return (
             <div className="weather_date">
                 <div className="date_left">
-                    <p>深圳野生动物园</p>
+                    <p>通心岭</p>
                     <img src={require("../../../../image/env/weather/10.png")}/>
                     <p>2018-09-01</p>
                 </div>
@@ -226,7 +226,7 @@ class Sliderbar extends Component {
                                                 <div className="percentage">
                                                     {percentageOfDone}%
                                                 </div>
-                                                <p>当天指数</p>
+                                                <p>当天AQI</p>
                                             </div>
                                             <div id="echarts-wrap">
                                                 <div id="petition-handling-chart" ref={(dom) => {
@@ -267,7 +267,7 @@ class Sliderbar extends Component {
                                                 <div className="percentage">
                                                     <p>{percentageOfDone}%</p>
                                                 </div>
-                                                <p>综合指数</p>
+                                                <p>日排名</p>
                                             </div>
                                             <div id="echarts-wrap">
                                                 <div id="petition-handling-chart" ref={(dom) => {
@@ -276,7 +276,7 @@ class Sliderbar extends Component {
                                                 <div className="percentage">
                                                     <p>{percentageOfDone}%</p>
                                                 </div>
-                                                <p>综合指数</p>
+                                                <p>月排名</p>
                                             </div>
                                             <div id="echarts-wrap">
                                                 <div id="petition-handling-chart" ref={(dom) => {
@@ -285,7 +285,7 @@ class Sliderbar extends Component {
                                                 <div className="percentage">
                                                     <p>{percentageOfDone}%</p>
                                                 </div>
-                                                <p>综合指数</p>
+                                                <p>年排名</p>
                                             </div>
                                         </div>
                                         : <div className="content">
