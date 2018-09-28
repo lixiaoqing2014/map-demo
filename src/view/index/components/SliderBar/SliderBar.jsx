@@ -28,22 +28,25 @@ const weather_date = [
 ]
 const city_point = [
     {name: "国控点"},
-    {name: "省控点"},
-    {name: "关心城市"},
-    {name: "倒数前十城市"}
+    {name: "市控点"},
+    {name: "科研站"},
+    {name: "气站"},
+    {name: "区属站"},
+    {name: "生态站"},
+    {name: "全国前十城市"}
 ]
 const title = ["排名", "监测点", "空气质量等级", "AQI", "首要污染物"]
 const city_rank = [
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"},
-    {NO: 1, city: "通新岭", quality: "重度污染", AQI: 303, program: "PM2.5"}
+    {NO: 1, city: "通新岭", quality: "优", AQI: 33, program: ""},
+    {NO: 2, city: "华侨城", quality: "良", AQI: 70, program: "PM2.5"},
+    {NO: 3, city: "南海", quality: "良", AQI: 60, program: "PM2.5"},
+    {NO: 4, city: "盐田", quality: "优", AQI: 33, program: ""},
+    {NO: 5, city: "梅沙", quality: "优", AQI: 33, program: ""},
+    {NO: 6, city: "福永", quality: "优", AQI: 33, program: ""},
+    {NO: 7, city: "葵涌", quality: "优", AQI: 33, program: ""},
+    {NO: 8, city: "光明", quality: "优", AQI: 33, program: ""},
+    {NO: 9, city: "横岗", quality: "优", AQI: 33, program: ""},
+    {NO: 10, city: "吓陂", quality: "优", AQI: 33, program: ""}
 ]
 
 class Sliderbar extends Component {
@@ -152,8 +155,8 @@ class Sliderbar extends Component {
             <div className="weather_date">
                 <div className="date_left">
                     <p>通心岭</p>
-                    <img src={require("../../../../image/env/weather/10.png")}/>
-                    <p>2018-09-01</p>
+                    <img src={require("../../../../image/env/weather/31.png")}/>
+                    <p className="dateCalender">2018-09-01</p>
                 </div>
                 <div className="date_right">
                     {
