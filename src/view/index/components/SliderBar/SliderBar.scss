@@ -2,7 +2,7 @@
     position: absolute;
     left: 0.3rem;
     top: 1rem;
-    width: 4.8rem;
+    width: 5.5rem;
     height: 9rem;
     background: rgba(2,32,59,0.8);
     z-index: 1;
@@ -10,31 +10,56 @@
     .nav {
         height: 0.6rem;
         background: #02203B;
-        border-bottom: 0.01rem solid rgba(0,163,255,0.2);
         position: relative;
+        overflow: hidden;
+        .nav-item:nth-child(1){
+            width: 30%;
+            box-sizing: border-box;
+        }
+        .nav-item:nth-child(2){
+            width: 70%;
+            box-sizing: border-box;
+        }
         .nav-item {
-            display: inline-block;
+            float: left;
             font-size: 0.22rem;
             height: 0.6rem;
             line-height: 0.6rem;
-            margin: 0 0.2rem;
+            margin: 0rem;
             cursor: pointer;
+            color: #AEC1D2;
+            position: relative;
+            border-bottom: 0.01rem solid rgba(174,193,210,1);
+            span{
+                padding: 0 0.2rem;
+            }
         }
         .active {
-            font-size: 0.26rem;
+           font-weight: bold;
             border-bottom: 0.01rem solid $component-title;
+            color: #7AB3E6;
             a {
                 color: white;
             }
         }
         .nav-arrows {
-            border-color: rgba(0,100,100,0) rgba(20,20,20,0) $component-title;
-            border-style: solid;
-            border-width: 0.08rem;
-            height: 0;
-            width: 0;
-            margin: 0 auto;
-            margin-top: -0.16rem;
+            //border-color: $component-title;
+            //border-style: solid;
+            //border-width: .02rem;
+            //border-radius: .2rem .2rem 0 0 ;
+            //height: 0.05rem;
+            //margin: 0 auto;
+            //margin-top: -0.16rem;
+            border: 1px solid $component-title;
+            width: 10px;
+            background: #02203B;
+            border-radius: 10px 10px 10px 10px;
+            height: 10px;
+            bottom: -0.10rem;
+            position: absolute;
+            left: 0.50rem;
+            z-index: 3;
+
         }
         .img_out {
             position: absolute;
@@ -45,6 +70,7 @@
             width: 0.2rem;
             margin: auto;
             cursor: pointer;
+            z-index: 6;
         }
     }
     .carousel {
@@ -53,7 +79,7 @@
         .weather_date {
            padding: 0.2rem 0;
            margin-bottom: 0.4rem;
-           height: 2.1rem;
+           height: 2.4rem;
            box-sizing: border-box;
         }
         .date_left, .date_right {        
@@ -82,15 +108,17 @@
         .date_right {
             float: right;
             background: #13324F;
-            width: 2.16rem;
-            height: 2.1rem;
-            padding: 0.15rem 0;
+            width: 2.4rem;
+            height: 2.3rem;
+            padding: 0.18rem 0;
         }
         .date_right p {
             height: 0.3rem;
             line-height: 0.3rem;
             padding-left: 0.2rem;
             text-align: left;
+            color: #AEC1D2;
+            margin-bottom: .02rem;
             span:nth-child(1){
                 float: left;
                 width: 60%;
@@ -132,6 +160,7 @@
 // echarts
 .petition-handling-container {
     margin-bottom: 0.2rem;
+    color: #AEC1D2;
     .title {
         margin-bottom: 0.20rem;
         line-height: 0.24rem;
@@ -153,7 +182,7 @@
         transform: translate(-50%);
     }
     #echarts-wrap {
-        width: 1.5rem;
+        width: 1.8rem;
         height: 1.5rem;
         position: relative;
         display: inline-block;
@@ -183,32 +212,58 @@
 // weather_data
 .weather_data {
     margin-left: 0.18rem;
+    .date_item:nth-last-child(1) p:nth-child(2){
+        color: #36DB7D
+    }
     .date_item {
         display: inline-block;
+        border: 1px solid #7AB3E6;
+        margin: 0 0.05rem 0.05rem 0;
         p {
             width: 0.7rem;
             height: 0.4rem;
-            margin: 0 0.05rem 0.05rem 0;
             line-height: 0.4rem;
             text-align: center;
+            box-sizing: border-box;
+
+        }
+        p:nth-child(1){
             color: #fff;
             background: #7AB3E6;
+
+        }
+        p:nth-child(2){
+            color: #7AB3E6;
         }
     }
 }
 // city_point
-.city_point {
+.tabcontainer{
     margin: 0 0.2rem;
     background: #0E3958;
-    li {
+    .city_point {
         display: inline-block;
-        // height: 0.6rem;
-        // line-height: 0.6rem;
-        text-align: center;
-        // width: 1rem;
-        padding: 0.2rem 0.1rem;
+        li {
+            display: inline-block;
+            // height: 0.6rem;
+            // line-height: 0.6rem;
+            text-align: center;
+            // width: 1rem;
+            padding: 0.2rem 0.1rem;
+            width: 1.15rem;
+        }
+        li:nth-child(4){
+            border-right: 1px solid #02203B;
+        }
+    }
+    .cityPoint_more{
+        display: inline-block;
+        .el-icon-more{
+            transform: rotate(90deg);
+        }
     }
 }
+
 .scroll {
     height: 4rem;
     overflow-y: auto;
@@ -219,37 +274,27 @@
 
 .title {
     margin: 0 0.2rem;
+    display: flex;
     li{
         display: inline-block;
         text-align: center;
         margin-right: 0.02rem;
         padding: 0.2rem 0;
-        // background: #0E3958;
-        &:nth-child(1) {
-            width: 0.48rem;
-        }
-        &:nth-child(2) {
-            width: 1rem;
-        }
-        &:nth-child(3) {
-            width: 1.2rem;
-        }
-        &:nth-child(4) {
-            width: 0.50rem;
-        }
-        &:nth-child(5) {
-            width: 0.98rem;
-        }
+        width: 20%;
+        box-sizing: border-box;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
     }
     &:nth-child(2n) {
         background: #0E3958;
     }
     &:nth-child(2n + 1) {
-        // background: #032848;
+        //background: #032848;
     }
 }
 .title-color {
-    // background: #2A6A98;
+     background: #479AE4;
 }
 
 // 修改elementt-react内部样式

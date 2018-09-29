@@ -11,10 +11,10 @@ const navItem = [
     {name: "累计数据", indexTab: 1}
 ]
 const weather = [
-    {key: "温度", value: "21C"},
-    {key: "湿度", value: "45C"},
+    {key: "温度", value: "21℃"},
+    {key: "湿度", value: "45%"},
     {key: "风向", value: "西北方向"},
-    {key: "风力", value: "西南方向"},
+    {key: "风力", value: "四到五级"},
     {key: "首要污染物", value: "PM2.5"},
     {key: "空气质量", value: "良"},
 ]
@@ -30,10 +30,7 @@ const city_point = [
     {name: "国控点"},
     {name: "市控点"},
     {name: "科研站"},
-    {name: "气站"},
-    {name: "区属站"},
-    {name: "生态站"},
-    {name: "全国前十城市"}
+    {name: "气站"}
 ]
 const title = ["排名", "监测点", "空气质量等级", "AQI", "首要污染物"]
 const city_rank = [
@@ -67,7 +64,7 @@ class Sliderbar extends Component {
 
     toggleWeather(flag) {
         this.setState({
-            style: flag ? {"left": "0.3rem"} : {"left": "-5.1rem"},
+            style: flag ? {"left": "0.3rem"} : {"left": "-5.5rem"},
             style1: flag ? {"opacity": 0} : {"opacity": 1}
         })
     }
@@ -300,15 +297,20 @@ class Sliderbar extends Component {
                         </Carousel.Item>
                         <Carousel.Item>
                             {this.weather()}
-                            <ul className="city_point">
-                                {
-                                    city_point.map((item, index) => {
-                                        return (
-                                            <li key={index}>{item.name}</li>
-                                        )
-                                    })
-                                }
-                            </ul>
+                            <div className="tabcontainer">
+                                <ul className="city_point">
+                                    {
+                                        city_point.map((item, index) => {
+                                            return (
+                                                <li key={index}>{item.name}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                                <div className="cityPoint_more">
+                                    <i className="el-icon-more"></i>
+                                </div>
+                            </div>
                             <ul className="title title-color">
                                 {
                                     title.map((item, index) => {

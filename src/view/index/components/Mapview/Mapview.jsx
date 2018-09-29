@@ -34,13 +34,9 @@ export default class MapVIew extends Component {
                 url: "https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer"
             });
             let map = new Map({
-                basemap: "streets",
+                basemap: "dark-gray",
                 layers:layer
             });
-
-
-
-
             // create 2D view and and set active
             appConfig.mapView = createView(initialViewParams, "2d");
             appConfig.mapView.map = map;
@@ -103,33 +99,63 @@ export default class MapVIew extends Component {
                 });
             }
 
-            var pointGraphic = new Graphic({
-                geometry: {
-                    type: "point", // autocasts as new Point()
-                    longitude: 114.063366,
-                    latitude: 22.549683
-                    },
-                symbol: {
-                    type: "picture-marker",
-                    symbolLayers: [{
-                        type: "icon",
-                        resource: {
-                            href: {Img} //指向本地图片地址
-                            },
-                        size: 20
-                    }],
-                    verticalOffset: {
-                        screenLength: 40,
-                        maxWorldLength: 200,
-                        minWorldLength: 35
-                    }
-                    },
-                attributes: {
-                    Name: "WebStyleSymbols",
-                    Type: "test",
-                    Action: "test"
-                }
-            });
+
+            // var polyline = {
+            //     type: "polyline",  // autocasts as new Polyline()
+            //     paths: [
+            //         [-111.30, 52.68],
+            //         [-98, 49.5],
+            //         [-93.94, 29.89]
+            //     ]
+            // };
+
+            // var polylineSymbol = {
+            //     type: "simple-line",  // autocasts as SimpleLineSymbol()
+            //     color: [226, 119, 40],
+            //     width: 4
+            // };
+            //
+            // var polylineAtt = {
+            //     Name: "Keystone Pipeline",
+            //     Owner: "TransCanada"
+            // };
+            //
+            // var polylineGraphic = new Graphic({
+            //     geometry: polyline,
+            //     symbol: polylineSymbol,
+            //     attributes: polylineAtt
+            // });
+            // view.graphics.add(polylineGraphic);
+
+
+            // var pointGraphic = new Graphic({
+            //     geometry: {
+            //         type: "point", // autocasts as new Point()
+            //         longitude: 114.063366,
+            //         latitude: 22.549683
+            //         },
+            //     symbol: {
+            //         type: "picture-marker",
+            //         symbolLayers: [{
+            //             type: "icon",
+            //             resource: {
+            //                 href: {Img} //指向本地图片地址
+            //                 },
+            //             size: 20
+            //         }],
+            //         verticalOffset: {
+            //             screenLength: 40,
+            //             maxWorldLength: 200,
+            //             minWorldLength: 35
+            //         }
+            //         },
+            //     attributes: {
+            //         Name: "WebStyleSymbols",
+            //         Type: "test",
+            //         Action: "test"
+            //     }
+            // });
+
 
         })
         return (
@@ -159,7 +185,8 @@ export default class MapVIew extends Component {
     render() {
         return (
             <div>
-                {this.mapDom()}
+
+                {/*{this.mapDom()}*/}
             </div>
         )
     }

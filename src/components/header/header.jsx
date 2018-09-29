@@ -43,7 +43,7 @@ class Header extends Component {
                             )}
                             >
                       <span className="el-dropdown-link">
-                      <i className="el-icon-caret-bottom el-icon--right"></i>
+                      <span className="trangle"></span>
                       </span>
                             </Dropdown>
 
