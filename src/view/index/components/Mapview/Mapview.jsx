@@ -30,12 +30,9 @@ export default class MapVIew extends Component {
                 center: [114.062252, 22.559137],
                 container: appConfig.container
             };
-            var layer = new TileLayer({
-                url: "https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer"
-            });
+
             let map = new Map({
                 basemap: "dark-gray",
-                layers:layer
             });
             // create 2D view and and set active
             appConfig.mapView = createView(initialViewParams, "2d");
@@ -186,7 +183,7 @@ export default class MapVIew extends Component {
         return (
             <div>
 
-                {/*{this.mapDom()}*/}
+                {this.mapDom()}
             </div>
         )
     }
