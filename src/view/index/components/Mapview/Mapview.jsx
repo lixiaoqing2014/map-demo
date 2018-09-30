@@ -14,8 +14,10 @@ export default class MapVIew extends Component {
             "esri/layers/GraphicsLayer",
             "esri/Graphic",
             "esri/widgets/Search",
+            "esri/geometry/Point",
+            "esri/symbols/PictureMarkerSymbol",
             "dojo/domReady!"
-        ]).then(([Map, MapView, SceneView,TileLayer,GraphicsLayer,Graphic,Search]) => {
+        ]).then(([Map, MapView, SceneView,TileLayer,GraphicsLayer,Graphic,Search,Point,PictureMarkerSymbol]) => {
 
 // 创建地图  satrt
             let appConfig = {
@@ -95,6 +97,61 @@ export default class MapVIew extends Component {
                     position: "top-right"
                 });
             }
+
+            var gLyr = new GraphicsLayer({"id":"gLyr"});
+            var gLyrLbl = new GraphicsLayer({"id":"gLyrLbl"});
+            map.layers.add([gLyr, gLyrLbl]);
+
+            map.allLayers.on("change", function(event) {
+                fetch("../data/data.json").then(function (data) {
+                    return data.json();
+                }).then(function (data) {
+                    var dataAll = data.data;
+                    for(var i=0;i<dataAll.length;i++){
+                        var pt = new Point(dataAll[i].x,dataAll[i].y,{"wkid":4326});
+                        var symbol = {};
+                        if (dataAll[i].type=="natureHeritage") {
+                            symbol = {
+                                type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+                                url: "https://static.arcgis.com/images/Symbols/Shapes/BlackStarLargeB.png",
+                                width: "64px",
+                                height: "64px"
+                            };
+                        }else if (dataAll[i].type=="cultureHeritage") {
+                            symbol = {
+                                type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+                                url: "https://static.arcgis.com/images/Symbols/Shapes/BlackStarLargeB.png",
+                                width: "64px",
+                                height: "64px"
+                            };
+                        }else if (dataAll[i].type=="doubleHeritage") {
+                            symbol = {
+                                type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+                                url: "https://static.arcgis.com/images/Symbols/Shapes/BlackStarLargeB.png",
+                                width: "64px",
+                                height: "64px"
+                            };
+                        }
+                         var gImg = new Graphic(pt,symbol,dataAll[i]);
+                         gLyr.add(gImg);
+                         var gLbl = new Graphic(pt,dataAll[i]);
+                         gLyrLbl.add(gLbl);
+                    }
+
+                    gLyr.on("mouse-over",function(e){
+                        var attr = e.graphic.attributes;
+                        showInfo(attr);
+                    });
+
+                })
+            })
+             function showInfo(attr){
+                var pt=new Point(attr.x,attr.y,{"wkid":4326});//WGS84的点
+                map.infoWindow.setTitle(attr.name);
+                map.infoWindow.setContent(attr.desc);
+                map.infoWindow.show(pt);
+            }
+
         })
         return (
             <div>
@@ -123,7 +180,6 @@ export default class MapVIew extends Component {
     render() {
         return (
             <div>
-
                 {this.mapDom()}
             </div>
         )
