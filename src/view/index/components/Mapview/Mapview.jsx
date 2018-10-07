@@ -1,12 +1,24 @@
 import React, {Component} from "react"
 import "./Mapview.scss"
 import esriloader from "esri-loader"
-import Img from "../../../../image/Bitmap@1x.png"
-export default class MapVIew extends Component {
-    componentDidMount() {
-    }
+import Group10 from "../../../../image/icon/Group10.png"
+import Group11 from "../../../../image/icon/Group11.png"
+import Group12 from "../../../../image/icon/Group12.png"
+import Group13 from "../../../../image/icon/Group13.png"
+import Group14 from "../../../../image/icon/Group14.png"
 
-    mapDom() {
+export default class MapVIew extends Component {
+
+    componentDidMount() {
+        this.mapDom();
+    }
+    componentWillReceiveProps(nextProps){
+        this.mapDom(nextProps)
+    }
+    mapDom(nextProps) {
+        const mapURL = {
+            url : "https://js.arcgis.com/4.9/"
+        }
         esriloader.loadModules(["esri/Map",
             "esri/views/MapView",
             "esri/views/SceneView",
@@ -15,26 +27,39 @@ export default class MapVIew extends Component {
             "esri/Graphic",
             "esri/widgets/Search",
             "esri/geometry/Point",
+            "esri/geometry/Extent",
             "esri/symbols/PictureMarkerSymbol",
+            "esri/symbols/SimpleMarkerSymbol",
+            "esri/symbols/TextSymbol",
+            "esri/widgets/ScaleBar",
             "dojo/domReady!"
-        ]).then(([Map, MapView, SceneView,TileLayer,GraphicsLayer,Graphic,Search,Point,PictureMarkerSymbol]) => {
+        ],mapURL).then(([Map, MapView, SceneView, TileLayer, GraphicsLayer, Graphic, Search, Point, Extent, PictureMarkerSymbol, SimpleMarkerSymbol, TextSymbol,ScaleBar]) => {
 
 // 创建地图  satrt
+            let centerParams = [114.062827, 22.550058];//深圳坐标
+           //let centerParams = [116.101208, 39.946778] //北京坐标
+            //var startExtent = new Extent({xmin:113.869656,xmax:114.397428,ymin:22.501451,ymax:23.04528});
             let appConfig = {
                 mapView: null,
                 sceneView: null,
                 activeView: null,
-                container: this.viewDiv  // use same container for views
-            };
+                center: centerParams,
+                container: this.viewDiv,  // use same container for views extent:startExtent
 
+            };
             let initialViewParams = {
                 zoom: 11,
-                center: [114.062252, 22.559137],
-                container: appConfig.container
+                center: appConfig.center,
+                container: appConfig.container,
             };
+
+            // var layer = new TileLayer({
+            //     url: "https://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"
+            // });
 
             let map = new Map({
                 basemap: "dark-gray",
+                //layers:layer
             });
             // create 2D view and and set active
             appConfig.mapView = createView(initialViewParams, "2d");
@@ -55,7 +80,7 @@ export default class MapVIew extends Component {
                 } else {
                     view = new SceneView(params);
                 }
-                search(view)
+                search(view);
                 return view;
             }
 
@@ -96,63 +121,202 @@ export default class MapVIew extends Component {
                 view.ui.add(searchWidget, {
                     position: "top-right"
                 });
+                //测量标尺
+                // var scaleBar = new ScaleBar({
+                //     view: view
+                // });
+                // view.ui.add(scaleBar, {
+                //     position: "bottom-right"
+                // });
+                view.ui.move("zoom", "bottom-right");
+
             }
 
-            var gLyr = new GraphicsLayer({"id":"gLyr"});
-            var gLyrLbl = new GraphicsLayer({"id":"gLyrLbl"});
-            map.layers.add([gLyr, gLyrLbl]);
-
-            map.allLayers.on("change", function(event) {
-                fetch("../data/data.json").then(function (data) {
-                    return data.json();
-                }).then(function (data) {
-                    var dataAll = data.data;
-                    for(var i=0;i<dataAll.length;i++){
-                        var pt = new Point(dataAll[i].x,dataAll[i].y,{"wkid":4326});
-                        var symbol = {};
-                        if (dataAll[i].type=="natureHeritage") {
-                            symbol = {
-                                type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
-                                url: "https://static.arcgis.com/images/Symbols/Shapes/BlackStarLargeB.png",
-                                width: "64px",
-                                height: "64px"
-                            };
-                        }else if (dataAll[i].type=="cultureHeritage") {
-                            symbol = {
-                                type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
-                                url: "https://static.arcgis.com/images/Symbols/Shapes/BlackStarLargeB.png",
-                                width: "64px",
-                                height: "64px"
-                            };
-                        }else if (dataAll[i].type=="doubleHeritage") {
-                            symbol = {
-                                type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
-                                url: "https://static.arcgis.com/images/Symbols/Shapes/BlackStarLargeB.png",
-                                width: "64px",
-                                height: "64px"
-                            };
-                        }
-                         var gImg = new Graphic(pt,symbol,dataAll[i]);
-                         gLyr.add(gImg);
-                         var gLbl = new Graphic(pt,dataAll[i]);
-                         gLyrLbl.add(gLbl);
+            var graphicsLayer = new GraphicsLayer();
+            var textLayer = new GraphicsLayer();
+            map.addMany([graphicsLayer, textLayer]);
+            fetch("./data/data.json").then(function (data) {
+                return data.json();
+            }).then(function (data) {
+                for (var i = 0; i < data.data.length; i++) {
+                    var pms;
+                    var pmsText;
+                    var point;
+                    var symbol;
+                    var textSymbol;
+                    var PointAtt;
+                    point = {
+                        type: "point",
+                        x:data.data[i].x,
+                        y:data.data[i].y
                     }
+                    PointAtt = {
+                        Name: data.data[i].name,
+                        Desc: data.data[i].desc
+                    }
+                    textSymbol = {
+                        type: "text",  // autocasts as new TextSymbol()
+                        color: "white",
+                        haloColor: "black",
+                        haloSize: "1px",
+                        text: data.data[i].SO2,
+                        yoffset: -4,
+                        font: {  // autocast as new Font()
+                            size: 10,
+                            family: "sans-serif",
+                            weight: "normal"
+                        }
+                    }
+                    if(nextProps !== undefined && nextProps !== null && nextProps !==""){
+                        if(JSON.stringify(nextProps.hoverInfobar) !=="{}" ){
+                            textSymbol.text=data.data[i][nextProps.hoverInfobar.Infor.sign]
+                        }}
 
-                    gLyr.on("mouse-over",function(e){
-                        var attr = e.graphic.attributes;
-                        showInfo(attr);
-                    });
+                    if (data.data[i].type === "rank1") {
+                        symbol = {
+                            angle: "1",
+                            type: "picture-marker",
+                            url: `${Group10}`,
+                            width: "32px",
+                            height: "40px"
+                        }
 
-                })
+                    } else if (data.data[i].type === "rank2") {
+                        symbol = {
+                            type: "picture-marker",
+                            url: `${Group11}`,
+                            width: "32px",
+                            height: "40px"
+                        }
+                    } else if (data.data[i].type === "rank3") {
+                        symbol = {
+                            type: "picture-marker",
+                            url: `${Group12}`,
+                            width: "32px",
+                            height: "40px"
+                        }
+                    } else if (data.data[i].type === "rank4") {
+                        symbol = {
+                            type: "picture-marker",
+                            url: `${Group13}`,
+                            width: "32px",
+                            height: "40px"
+                        }
+                    } else {
+                        symbol = {
+                            type: "picture-marker",
+                            url: `${Group14}`,
+                            width: "32px",
+                            height: "40px"
+                        }
+                    }
+                    pms = new Graphic({
+                        geometry: point,
+                        symbol: symbol,
+                        attributes: PointAtt,
+                        popupTemplate: {
+                            title: "{Name}",
+                            content: "{Desc}"
+                        }
+                    })
+                    pmsText = new Graphic({
+                        geometry: point,
+                        symbol: textSymbol
+                    })
+                    graphicsLayer.add(pms);
+                    textLayer.add(pmsText);
+                }
             })
-             function showInfo(attr){
-                var pt=new Point(attr.x,attr.y,{"wkid":4326});//WGS84的点
-                map.infoWindow.setTitle(attr.name);
-                map.infoWindow.setContent(attr.desc);
-                map.infoWindow.show(pt);
-            }
+              if(nextProps !== undefined && nextProps !== null && nextProps !==""){
+                if(JSON.stringify(nextProps.handleInfo) !=="{}" ){
+                    var longitude = nextProps.handleInfo.longitude;
+                    var latitude = nextProps.handleInfo.latitude;
+                    var name = nextProps.handleInfo.name;
+                    var desc = nextProps.handleInfo.desc;
+                    centerParams = [longitude,latitude];
+                    appConfig.mapView.center = centerParams;
+                    appConfig.sceneView.center = centerParams;
+                    appConfig.activeView.center = centerParams;
 
+                    var point = new Point(centerParams[0], centerParams[1]);
+                    let attribute = {
+                        Name:name,
+                        Desc:desc
+                    }
+                    addGraphicsToMap(point,true,attribute);
+                }
+
+              }
+            function addGraphicsToMap(geometry,flash,attribute) {
+                var symbol = null;
+                if (geometry.type === "point") {
+                    symbol = new SimpleMarkerSymbol({
+                        style: "square",
+                        color: "red",
+                        size: "15px",
+                        outline: {
+                            color: [255, 255, 0],
+                            width: 2
+                        }
+                    });
+                }
+               var _graphics = new Graphic({
+                   geometry:geometry,
+                   symbol:symbol,
+                   attributes:attribute,
+                   popupTemplate:{
+                       title: "{Name}",
+                       content: "{Desc}"
+                   }
+               })
+                _graphics.getEffectivePopupTemplate()
+                // var _graphics_mapView = appConfig.mapView.graphics.add(_graphics);
+                // var _graphics_sceneView = appConfig.sceneView.graphics.add(_graphics);
+
+                var layer = new GraphicsLayer({
+                    graphics: [_graphics]
+                });
+                map.layers.add(layer);
+                if(flash){
+                    var tempTime=0;
+                    layer.visible = false
+                    var handler = null;
+                    handler=setInterval(function () {
+                        if(tempTime === 8){
+                            if(handler){
+                                if(!layer.visible){
+                                    layer.visible = true;
+                                }
+                                clearInterval(handler);
+                                handler =null;
+                            }
+                            return;
+                        }
+                        if(layer.visible){
+                            layer.visible = false;
+                        }
+                        else{
+                            layer.visible = true;
+                        }
+                        tempTime++;
+                    },500);
+
+                }
+            }
+            //清空graphics
+            function clearGraphics() {
+                map.graphics.clear();
+                var  graphicsLayerIds = map.graphicsLayerIds;
+                var len = graphicsLayerIds.length;
+                for(var i=0;i<len;i++){
+                    var gLayer = map.getLayer(graphicsLayerIds[i]);
+                    gLayer.clear();
+                }
+            }
         })
+    }
+
+    render() {
         return (
             <div>
                 <div
@@ -173,14 +337,6 @@ export default class MapVIew extends Component {
                            }}
                     />
                 </div>
-            </div>
-        )
-    }
-
-    render() {
-        return (
-            <div>
-                {this.mapDom()}
             </div>
         )
     }

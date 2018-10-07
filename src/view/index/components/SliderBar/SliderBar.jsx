@@ -33,18 +33,7 @@ const city_point = [
     {name: "气站"}
 ]
 const title = ["排名", "监测点", "空气质量等级", "AQI", "首要污染物"]
-const city_rank = [
-    {NO: 1, city: "通新岭", quality: "优", AQI: 33, program: ""},
-    {NO: 2, city: "华侨城", quality: "良", AQI: 70, program: "PM2.5"},
-    {NO: 3, city: "南海", quality: "良", AQI: 60, program: "PM2.5"},
-    {NO: 4, city: "盐田", quality: "优", AQI: 33, program: ""},
-    {NO: 5, city: "梅沙", quality: "优", AQI: 33, program: ""},
-    {NO: 6, city: "福永", quality: "优", AQI: 33, program: ""},
-    {NO: 7, city: "葵涌", quality: "优", AQI: 33, program: ""},
-    {NO: 8, city: "光明", quality: "优", AQI: 33, program: ""},
-    {NO: 9, city: "横岗", quality: "优", AQI: 33, program: ""},
-    {NO: 10, city: "吓陂", quality: "优", AQI: 33, program: ""}
-]
+
 
 class Sliderbar extends Component {
     constructor(props) {
@@ -52,7 +41,8 @@ class Sliderbar extends Component {
         this.state = {
             activeTab: 0,
             data: {},
-            isDrawer: true
+            isDrawer: true,
+            city_rank:[]
         }
     }
 
@@ -70,13 +60,20 @@ class Sliderbar extends Component {
     }
 
     componentDidMount() {
-        this.getData()
+        this.getData();
         window.addEventListener("resize", this.handleResize);
+        fetch("./data/data.json").then(function (res) {
+            return res.json();
+        }).then(function (data) {
+            this.setState({
+                city_rank:data.data
+            })
+        }.bind(this))
 
     }
 
     componentWillUnmount() {
-        window.removeEventListener("resize", this.handleResize)
+        window.removeEventListener("resize", this.handleResize);
     }
 
     getData = () => {
@@ -92,12 +89,6 @@ class Sliderbar extends Component {
             this.drawChart(this.echarts5, "e5")
             this.drawChart(this.echarts6, "e6")
         });
-        fetch("/data/Test.json").then((res)=>{
-            return res.json()
-        }).then((data)=>{
-            console.log(data);
-        })
-
     }
 
     drawChart(dom, echart) {
@@ -114,7 +105,7 @@ class Sliderbar extends Component {
                     type: "pie",
                     radius: ["68%", "80%"],
                     // center: ["40%", "52%"],
-                    color: ["#00a3ff", "#999999"],
+                    color: ["#00a3ff", "#7AB3E6"],
                     hoverAnimation: false,
                     label: {
                         normal: {
@@ -133,6 +124,9 @@ class Sliderbar extends Component {
             ]
         };
 
+        if(echart == "e2"){
+            option.series.color = ["#00a3ff", "#36DB7D"]
+        }
         myChart.setOption(option);
         this[echart] = myChart;
     }
@@ -146,7 +140,15 @@ class Sliderbar extends Component {
         this.e5 && this.e5.resize()
         this.e6 && this.e6.resize()
     }
-
+    selectItem(val){
+        var longitude = val.x;
+        var latitude = val.y;
+        var name = val.name;
+        var desc = val.desc;
+        if(this.props.onInfoClick){
+            this.props.onInfoClick({longitude,latitude,name,desc})
+        }
+    }
     weather() {
         return (
             <div className="weather_date">
@@ -321,12 +323,11 @@ class Sliderbar extends Component {
                                 }
                             </ul>
                             <div className="scroll">
-                                {
-                                    city_rank.map((item, index) => {
+                                {this.state.city_rank.map((item, index) => {
                                         return (
-                                            <ul className="title" key={index}>
+                                            <ul className="title" key={index} onClick={this.selectItem.bind(this,item)}>
                                                 <li>{item.NO}</li>
-                                                <li>{item.city}</li>
+                                                <li>{item.name}</li>
                                                 <li>{item.quality}</li>
                                                 <li>{item.AQI}</li>
                                                 <li>{item.program}</li>

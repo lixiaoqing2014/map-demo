@@ -190,6 +190,7 @@
     #petition-handling-chart {
         width: 1.5rem;
         height: 1.5rem;
+        margin: 0 auto;
     }
 
     .percentage {
@@ -211,7 +212,8 @@
 
 // weather_data
 .weather_data {
-    margin-left: 0.18rem;
+    margin-left: 0.15rem;
+    display: flex;
     .date_item:nth-last-child(1) p:nth-child(2){
         color: #36DB7D
     }
@@ -220,7 +222,7 @@
         border: 1px solid #7AB3E6;
         margin: 0 0.05rem 0.05rem 0;
         p {
-            width: 0.7rem;
+            width: 0.8rem;
             height: 0.4rem;
             line-height: 0.4rem;
             text-align: center;
@@ -258,6 +260,7 @@
     }
     .cityPoint_more{
         display: inline-block;
+        margin-left: .1rem;
         .el-icon-more{
             transform: rotate(90deg);
         }
@@ -294,6 +297,7 @@
     }
 }
 .title-color {
+    margin-top: .1rem;
      background: #479AE4;
 }
 

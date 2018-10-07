@@ -47,20 +47,23 @@
 		}
 
 		.login-name {
-			font-size: 0.2rem;
+			font-size: 0.14rem;
 			margin-left: 0.16rem;
 			color: #AEC1D2;
+			position: relative;
 		}
 		.el-dropdown{
 			position: absolute;
 			right: .32rem;
-			top:0.48rem;
+			top:0.33rem;
          .el-dropdown-link{
 			 .trangle{
 				 border-style: solid;
 				 border-width: .08rem;
 				 border-radius: 0.05rem;
 				 border-color: #fff transparent transparent;
+				 top:.04rem;
+				 position: absolute;
 			 }
 			 .el-icon--right::before{
 				 color: #fff;

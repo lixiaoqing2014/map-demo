@@ -10,21 +10,32 @@ const color = [
     {key: "#7E0023"}
 ]
 const data = [
-    {key: "AQI", data: {}},
-    {key: "PM2.5", data: {}},
-    {key: "PM10", data: {}},
-    {key: "SO2", data: {}},
-    {key: "NO2", data: {}},
-    {key: "CO", data: {}},
-    {key: "O3", data: {}},
-    {key: "综合", data: {}},
-    {key: "温度", data: {}},
-    {key: "湿度", data: {}},
-    {key: "风向", data: {}},
-    {key: "风力", data: {}},
+    {key: "AQI",sign:"AQI"},
+    {key: "PM2.5",sign:"PM2.5"},
+    {key: "PM10",sign:"PM10"},
+    {key: "SO2",sign:"SO2"},
+    {key: "NO2",sign:"NO2"},
+    {key: "CO",sign:"CO"},
+    {key: "O3",sign:"O3"},
+    {key: "综合",sign:"sum"},
+    {key: "温度",sign:"temperature"},
+    {key: "湿度",sign:"moisture"},
+    {key: "风向",sign:"windDirection"},
+    {key: "风力",sign:"Windpower"},
 ]
 
 class BottomBar extends Component {
+    constructor(){
+        super();
+    }
+
+    onMouseEnter(item){
+    if(this.props.handleHover){
+        var key = item.key;
+        var sign = item.sign;
+        this.props.handleHover({key,sign})
+    }
+    }
     render() {
         return (
             <div>
@@ -42,11 +53,11 @@ class BottomBar extends Component {
                 </div>
                 <ul className="quality">
                     {
-                        data.map(item => {
+                        data.map((item,index) => {
                             return (
                                 <li
                                     className="quality-item"
-                                    key={item.key}
+                                    key={index} onMouseEnter={this.onMouseEnter.bind(this,item)}
                                 >
                                     <div className="item-scale">
                                         {item.key}

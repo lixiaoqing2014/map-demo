@@ -31,9 +31,7 @@ class Header extends Component {
                     </div>
                     <div className="user">
                         <img src={iconUser} className="login-pic" alt="此处应有图片"></img>
-                        <div className="login-name clickable">
-                            李建
-                        </div>
+
                             <Dropdown menu={(
                                 <Dropdown.Menu>
                                     <Dropdown.Item>个人中心</Dropdown.Item>
@@ -42,9 +40,12 @@ class Header extends Component {
                                 </Dropdown.Menu>
                             )}
                             >
-                      <span className="el-dropdown-link">
-                      <span className="trangle"></span>
-                      </span>
+                      <div className="el-dropdown-link">
+                          <div className="login-name clickable">
+                            李建<span className="trangle"></span>
+                        </div>
+
+                      </div>
                             </Dropdown>
 
                     </div>
