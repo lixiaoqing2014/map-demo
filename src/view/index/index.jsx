@@ -22,7 +22,8 @@ class Index extends Component {
     handleHover(val){
         let data = Object.assign({},this.state.hoverInfo,{Infor:val});
         this.setState({
-            hoverInfo:data
+            hoverInfo:data,
+            info:{}
         })
 
     }
