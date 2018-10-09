@@ -280,14 +280,34 @@
     display: flex;
     li{
         display: inline-block;
-        text-align: center;
-        margin-right: 0.02rem;
         padding: 0.2rem 0;
-        width: 20%;
         box-sizing: border-box;
         white-space: nowrap;
         text-overflow: ellipsis;
+        &:nth-child(1){
+            width: .6rem;
+            text-align: center;
 
+        }
+        &:nth-child(2){
+            width: 1.2rem;
+            text-align: center;
+        }
+        &:nth-child(3){
+            width: 1.4rem;
+            text-align: center;
+
+        }
+        &:nth-child(4){
+            width: .7rem;
+            text-align: center;
+
+        }
+        &:nth-child(5){
+            width: .4rem;
+            text-align: center;
+
+        }
     }
     &:nth-child(2n) {
         background: #0E3958;
@@ -298,7 +318,7 @@
 }
 .title-color {
     margin-top: .1rem;
-     background: #479AE4;
+    background: #479AE4;
 }
 
 // 修改elementt-react内部样式

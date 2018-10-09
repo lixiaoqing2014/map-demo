@@ -37,7 +37,7 @@ export default class MapVIew extends Component {
 
 // 创建地图  satrt
             let centerParams = [114.062827, 22.550058];//深圳坐标
-           //let centerParams = [116.101208, 39.946778] //北京坐标
+            //let centerParams = [116.101208, 39.946778] //北京坐标
             //var startExtent = new Extent({xmin:113.869656,xmax:114.397428,ymin:22.501451,ymax:23.04528});
             let appConfig = {
                 mapView: null,
@@ -251,7 +251,7 @@ export default class MapVIew extends Component {
                 var symbol = null;
                 if (geometry.type === "point") {
                     symbol = new SimpleMarkerSymbol({
-                        style: "square",
+                        style: "circle",
                         color: "red",
                         size: "15px",
                         outline: {
